@@ -2,17 +2,17 @@
 proto:
 	go get google.golang.org/protobuf/cmd/protoc-gen-go
 	go get github.com/micro/protoc-gen-micro/v2
-	PROTOC_ZIP=protoc-3.14.0.-linux-x86_64.zip
-	curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/$PROTOC_ZIP
-	unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
-	unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
-	rm -f $PROTOC_ZIP
+	# PROTOC_ZIP=protoc-3.14.0.-linux-x86_64.zip
+	# curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/$PROTOC_ZIP
+	# unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
+	# unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
+	# rm -f $PROTOC_ZIP
 
-	protoc -I=./ --go_out=:./go_out --micro_out=:./go_out ./game/*.proto
-	protoc -I=./ --go_out=:./go_out --micro_out=:./go_out ./gate/*.proto
-	protoc -I=./ --go_out=:./go_out --micro_out=:./go_out ./combat/*.proto
-	protoc -I=./ --go_out=:./go_out --micro_out=:./go_out ./account/*.proto
-	protoc -I=./ --go_out=:./go_out --micro_out=:./go_out ./pubsub/*.proto
+	./bin/protoc -I=./ --go_out=:./go_out --micro_out=:./go_out ./game/*.proto
+	./bin/protoc -I=./ --go_out=:./go_out --micro_out=:./go_out ./gate/*.proto
+	./bin/protoc -I=./ --go_out=:./go_out --micro_out=:./go_out ./combat/*.proto
+	./bin/protoc -I=./ --go_out=:./go_out --micro_out=:./go_out ./account/*.proto
+	./bin/protoc -I=./ --go_out=:./go_out --micro_out=:./go_out ./pubsub/*.proto
 
 .PHONY: push_coding
 push_coding:
