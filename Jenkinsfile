@@ -5,7 +5,7 @@ pipeline {
       steps {
         checkout([
           $class: 'GitSCM',
-          branches: [[name: env.GIT_BUILD_REF]],
+          branches: [[name: env.GIT_CODE_DEV_BRANCH_NAME]],
           userRemoteConfigs: [[
             url: env.GIT_REPO_URL,
             credentialsId: env.CREDENTIALS_ID
@@ -21,6 +21,9 @@ pipeline {
           sh 'go env'
           sh 'make proto'
           sh 'ls -al ./go_out'
+          sh 'git add ./go_out/*'
+          sh 'git commit -m "自动生成pb和micropb"'
+          sh 'git push origin dev'
         }
       }
     }

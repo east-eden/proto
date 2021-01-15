@@ -1,7 +1,6 @@
 syntax = "proto3";
 package game;
 
-// option go_package = "e.coding.net/mmstudio/blade/server/proto/game";
 option go_package = "game";
 
 
