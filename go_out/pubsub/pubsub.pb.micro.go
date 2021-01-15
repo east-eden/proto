@@ -4,9 +4,9 @@
 package pubsub
 
 import (
-	_ "account"
+	_ "e.coding.net/mmstudio/blade/proto/account"
+	_ "e.coding.net/mmstudio/blade/proto/game"
 	fmt "fmt"
-	_ "game"
 	proto "github.com/golang/protobuf/proto"
 	math "math"
 )

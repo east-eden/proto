@@ -1,7 +1,7 @@
 syntax = "proto3";
 package pubsub;
 
-option go_package = "pubsub";
+option go_package = "e.coding.net/mmstudio/blade/proto/pubsub";
 
 import "account/account.proto";
 import "game/player.proto";
