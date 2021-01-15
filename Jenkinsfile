@@ -21,9 +21,16 @@ pipeline {
           sh 'go env'
           sh 'make proto'
           sh 'ls -al ./go_out'
-          sh 'git add ./go_out/*'
+          sh 'rm -rf ./go_out/e.coding.net/*'
+          sh 'git add *'
           sh 'git commit -m "自动生成pb和micropb"'
-          sh 'git push origin dev'
+          sh 'git remote -v'
+          sh 'git branch -v'
+        }
+      }
+      stage('推送到 CODING') {
+        steps {
+          sh "git push https://${PROJECT_TOKEN_GK}:${PROJECT_TOKEN}@e.coding.net/mmstudio/blade/proto.git HEAD:dev"
         }
       }
     }
