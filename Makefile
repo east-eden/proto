@@ -3,8 +3,6 @@ proto:
 	go get google.golang.org/protobuf/cmd/protoc-gen-go
 	go get github.com/micro/protoc-gen-micro/v2
 	
-	pwd
-	ls -al
 	./bin/protoc -I=./ --go_out=:./go_out --micro_out=:./go_out ./game/*.proto
 	./bin/protoc -I=./ --go_out=:./go_out --micro_out=:./go_out ./gate/*.proto
 	./bin/protoc -I=./ --go_out=:./go_out --micro_out=:./go_out ./combat/*.proto
