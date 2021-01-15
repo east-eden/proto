@@ -4,8 +4,8 @@
 package combat
 
 import (
+	_ "e.coding.net/mmstudio/blade/proto/game"
 	fmt "fmt"
-	_ "game"
 	proto "github.com/golang/protobuf/proto"
 	math "math"
 )
