@@ -1,7 +1,8 @@
 syntax = "proto3";
 package gate;
 
-option go_package = "e.coding.net/mmstudio/blade/server/proto/gate";
+// option go_package = "e.coding.net/mmstudio/blade/server/proto/gate";
+option go_package = "gate";
 
 import "game/player.proto";
 
