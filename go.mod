@@ -1,4 +1,4 @@
-module e.coding.net/mmstudio/blade/proto
+module bitbucket.org/east-eden/proto
 
 go 1.15
 
