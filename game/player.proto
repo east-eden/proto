@@ -75,3 +75,7 @@ message C2M_PublicSyncPlayerInfo {
 message M2C_PublicSyncPlayerInfo {
 
 }
+
+message C2M_TestCiFunc {
+    int32 CiCmd = 1;
+}
