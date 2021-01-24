@@ -16,3 +16,5 @@ linux_proto:
 	./bin/protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/east-eden/server/proto --micro_opt=paths=source_relative ./combat/*.proto
 	./bin/protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/east-eden/server/proto --micro_opt=paths=source_relative ./account/*.proto
 	./bin/protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/east-eden/server/proto --micro_opt=paths=source_relative ./pubsub/*.proto
+
+	dotnet ./bin/myApp.dll
