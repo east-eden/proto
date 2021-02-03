@@ -1,20 +1,20 @@
 syntax = "proto3";
 package pubsub;
 
-option go_package = "bitbucket.org/east-eden/server/proto/pubsub";
+option go_package = "bitbucket.org/east-eden/server/proto/server/pubsub";
 
-import "account/account.proto";
-import "game/player.proto";
+import "global/define.proto";
+import "server/game/player.proto";
 
 /////////////////////////////////////////////////
 // pub/sub
 /////////////////////////////////////////////////
 message PubStartGate {
-    account.LiteAccount info = 1;
+    global.LiteAccount info = 1;
 }
 
 message PubGateResult {
-    account.LiteAccount info = 1;
+    global.LiteAccount info = 1;
     bool win = 2;
 }
 

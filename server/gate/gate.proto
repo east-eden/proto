@@ -1,9 +1,9 @@
 syntax = "proto3";
 package gate;
 
-option go_package = "bitbucket.org/east-eden/server/proto/gate";
+option go_package = "bitbucket.org/east-eden/server/proto/server/gate";
 
-import "game/player.proto";
+import "server/game/player.proto";
 
 message GateStatus {
     int32 gate_id = 1;

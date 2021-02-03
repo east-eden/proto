@@ -1,22 +1,14 @@
 syntax = "proto3";
 package game;
 
-option go_package = "bitbucket.org/east-eden/server/proto/game";
+option go_package = "bitbucket.org/east-eden/server/proto/server/game";
 option csharp_namespace = "game";
 
+import "global/define.proto";
 
-////////////////////////////////////////////////
-// player
-message LitePlayer {
-    int64 id = 1;
-    int64 account_id = 2;
-    string name = 3;
-    int64 exp = 4;
-    int32 level = 5;
-}
 
 message PlayerInfo{
-    LitePlayer lite_info = 1; 
+    global.LitePlayer lite_info = 1; 
     int32 hero_nums = 2;
     int32 item_nums = 3;
 }
@@ -74,13 +66,5 @@ message C2M_PublicSyncPlayerInfo {
 }
 
 message M2C_PublicSyncPlayerInfo {
-
-}
-
-message C2M_TestCiFunc {
-    int32 CiCmd = 1;
-}
-
-message M2C_TestCiFunc {
 
 }

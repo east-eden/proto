@@ -1,17 +1,10 @@
 syntax = "proto3";
 package game;
 
-option go_package = "bitbucket.org/east-eden/server/proto/game";
+option go_package = "bitbucket.org/east-eden/server/proto/server/game";
 option csharp_namespace = "game";
 
-////////////////////////////////////////////////
-// Item
-message Item { //IMessage
-    int64 Id = 1;
-    int32 TypeId = 2;
-    int32 Num = 3;
-    int64 EquipObjId = 4;   // 装备者objid
-}
+import "global/define.proto";
 
 message C2M_AddItem { //IMessage
     int32 TypeId = 1;
@@ -30,15 +23,15 @@ message C2M_QueryItems { //IMessage
 }
 
 message M2C_ItemList { //IMessage
-    repeated Item items = 1;
+    repeated global.Item items = 1;
 }
 
 message M2C_ItemAdd { //IMessage
-    Item item = 1;
+    global.Item item = 1;
 }
 
 message M2C_ItemUpdate { //IMessage
-    Item item = 1;
+    global.Item item = 1;
 }
 
 message M2C_DelItem { //IMessage

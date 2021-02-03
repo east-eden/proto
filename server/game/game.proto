@@ -1,10 +1,10 @@
 syntax = "proto3";
 package game;
 
-option go_package = "bitbucket.org/east-eden/server/proto/game";
+option go_package = "bitbucket.org/east-eden/server/proto/server/game";
 option csharp_namespace = "game";
 
-import "game/player.proto";
+import "global/define.proto";
 
 ///////////////////////////////////////////////////
 // service
@@ -19,7 +19,7 @@ message GetRemoteLitePlayerRequest {
 }
 
 message GetRemoteLitePlayerReply {
-    LitePlayer info = 1;
+    global.LitePlayer info = 1;
 }
 
 message UpdatePlayerExpRequest {

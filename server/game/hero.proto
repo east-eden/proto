@@ -1,21 +1,10 @@
 syntax = "proto3";
 package game;
 
-option go_package = "bitbucket.org/east-eden/server/proto/game";
+option go_package = "bitbucket.org/east-eden/server/proto/server/game";
 option csharp_namespace = "game";
 
-import "game/att.proto";
-
-////////////////////////////////////////////////
-// Hero
-message Hero {
-    int64 Id = 1;
-    int32 TypeId = 2;
-    int64 Exp = 3;
-    int32 Level = 4;
-    repeated int64 EquipList = 5;   // 装备
-    repeated int64 RuneList = 6;    // 魂石
-}
+import "global/define.proto";
 
 message C2M_AddHero { //IMessage
     int32 TypeId = 1;
@@ -30,15 +19,15 @@ message C2M_QueryHeros { //IMessage
 }
 
 message M2C_HeroUpdate { //IMessage
-    Hero info = 1;
+    global.Hero info = 1;
 }
 
 message M2C_HeroList { //IMessage
-    repeated Hero heros = 1;
+    repeated global.Hero heros = 1;
 }
 
 message M2C_HeroInfo { //IMessage
-    Hero info = 1;
+    global.Hero info = 1;
 }
 
 ////////////////////////////////////////////////
@@ -57,5 +46,5 @@ message C2M_TakeoffEquip { //IMessage
 // Att
 message M2C_HeroAttUpdate {
     int64 HeroId = 1;
-    repeated Att AttList = 2;
+    repeated global.Att AttList = 2;
 }
