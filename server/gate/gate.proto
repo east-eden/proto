@@ -3,7 +3,7 @@ package gate;
 
 option go_package = "bitbucket.org/east-eden/server/proto/server/gate";
 
-import "server/game/player.proto";
+import "global/define.proto";
 
 message GateStatus {
     int32 gate_id = 1;
@@ -40,7 +40,7 @@ message UpdateUserInfoRequest {
 
 message SyncPlayerInfoRequest {
     int64 UserId = 1;
-    game.PlayerInfo info = 2;    
+    global.PlayerInfo info = 2;    
 }
 
 message SyncPlayerInfoReply {

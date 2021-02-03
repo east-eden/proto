@@ -4,20 +4,19 @@ package pubsub;
 option go_package = "bitbucket.org/east-eden/server/proto/server/pubsub";
 
 import "global/define.proto";
-import "server/game/player.proto";
 
 /////////////////////////////////////////////////
 // pub/sub
 /////////////////////////////////////////////////
 message PubStartGate {
-    global.LiteAccount info = 1;
+    global.AccountInfo info = 1;
 }
 
 message PubGateResult {
-    global.LiteAccount info = 1;
+    global.AccountInfo info = 1;
     bool win = 2;
 }
 
 message PubSyncPlayerInfo {
-    game.PlayerInfo info = 1;
+    global.PlayerInfo info = 1;
 }

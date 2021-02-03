@@ -10,16 +10,16 @@ import "global/define.proto";
 // service
 ///////////////////////////////////////////////////
 service GameService {
-    rpc GetRemoteLitePlayer (GetRemoteLitePlayerRequest) returns (GetRemoteLitePlayerReply) {}
+    rpc GetRemotePlayerInfo (GetRemotePlayerInfoRq) returns (GetRemotePlayerInfoRs) {}
     rpc UpdatePlayerExp (UpdatePlayerExpRequest) returns (UpdatePlayerExpReply) {}
 }
 
-message GetRemoteLitePlayerRequest {
+message GetRemotePlayerInfoRq {
     int64 id = 1;
 }
 
-message GetRemoteLitePlayerReply {
-    global.LitePlayer info = 1;
+message GetRemotePlayerInfoRs {
+    global.PlayerInfo info = 1;
 }
 
 message UpdatePlayerExpRequest {

@@ -6,7 +6,7 @@ option csharp_namespace = "global";
 
 ////////////////////////////////////////////////
 // Account 
-message LiteAccount {
+message AccountInfo {
     int64 id = 1;
     string name = 2;
     int32 level = 3;
@@ -41,7 +41,7 @@ message Item { //IMessage
 
 ////////////////////////////////////////////////
 // player
-message LitePlayer {
+message PlayerInfo{
     int64 id = 1;
     int64 account_id = 2;
     string name = 3;
