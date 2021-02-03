@@ -1,0 +1,50 @@
+syntax = "proto3";
+package global;
+
+option go_package = "bitbucket.org/east-eden/server/proto/global";
+option csharp_namespace = "global";
+
+import "global/define.proto";
+
+message C2M_AddHero { 
+    int32 TypeId = 1;
+}
+
+message C2M_DelHero { 
+    int64 Id = 1;
+}
+
+message C2M_QueryHeros { 
+
+}
+
+message M2C_HeroUpdate { 
+    Hero info = 1;
+}
+
+message M2C_HeroList { 
+    repeated Hero heros = 1;
+}
+
+message M2C_HeroInfo { 
+    Hero info = 1;
+}
+
+////////////////////////////////////////////////
+// Equip
+message C2M_PutonEquip { 
+    int64 HeroId = 1;
+    int64 EquipId = 2;
+}
+
+message C2M_TakeoffEquip { 
+    int64 HeroId = 1;
+    int32 Pos = 2;      // 0-3
+}
+
+////////////////////////////////////////////////
+// Att
+message M2C_HeroAttUpdate {
+    int64 HeroId = 1;
+    repeated Att AttList = 2;
+}

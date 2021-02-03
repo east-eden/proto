@@ -1,0 +1,64 @@
+syntax = "proto3";
+package global;
+
+option go_package = "bitbucket.org/east-eden/server/proto/global";
+option csharp_namespace = "global";
+
+import "global/define.proto";
+
+
+message C2M_CreatePlayer { //IRequest
+    string name = 1;
+}
+
+message M2C_CreatePlayer { //IResponse
+	int32 Error = 91;
+	string Message = 92;
+    PlayerInfo info = 1;
+}
+
+message MC_SelectPlayer {
+    int64 id = 1;
+}
+
+message MS_SelectPlayer {
+    PlayerInfo info = 1;
+    int32 error_code = 2;
+}
+
+message C2M_QueryPlayerInfo { //IMessage
+}
+
+message M2C_QueryPlayerInfo { //IMessage
+    PlayerInfo info = 1;
+	int32 Error = 2;
+}
+
+message C2M_ChangeExp { //IMessage
+    int64 AddExp = 1;
+}
+
+message M2C_ExpUpdate { //IMessage
+    int64 Exp = 1;
+    int32 Level = 2;
+}
+
+message C2M_ChangeLevel { //IMessage
+    int32 AddLevel = 1;
+}
+
+message C2M_SyncPlayerInfo {
+
+}
+
+message M2C_SyncPlayerInfo {
+
+}
+
+message C2M_PublicSyncPlayerInfo {
+
+}
+
+message M2C_PublicSyncPlayerInfo {
+
+}
