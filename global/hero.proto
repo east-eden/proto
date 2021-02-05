@@ -10,6 +10,8 @@ message C2M_AddHero {
     int32 TypeId = 1;
 }
 
+
+
 message C2M_DelHero { 
     int64 Id = 1;
 }

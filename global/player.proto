@@ -7,58 +7,47 @@ option csharp_namespace = "global";
 import "global/define.proto";
 
 
-message C2M_CreatePlayer { //IRequest
+message C2S_CreatePlayer { 
     string name = 1;
 }
 
-message M2C_CreatePlayer { //IResponse
-	int32 Error = 91;
-	string Message = 92;
+message S2C_CreatePlayer { 
     PlayerInfo info = 1;
 }
 
-message MC_SelectPlayer {
-    int64 id = 1;
+message C2S_QueryPlayerInfo { 
 }
 
-message MS_SelectPlayer {
-    PlayerInfo info = 1;
-    int32 error_code = 2;
-}
-
-message C2M_QueryPlayerInfo { //IMessage
-}
-
-message M2C_QueryPlayerInfo { //IMessage
+message S2C_QueryPlayerInfo { 
     PlayerInfo info = 1;
 	int32 Error = 2;
 }
 
-message C2M_ChangeExp { //IMessage
+message C2S_ChangeExp { 
     int64 AddExp = 1;
 }
 
-message M2C_ExpUpdate { //IMessage
+message S2C_ExpUpdate { 
     int64 Exp = 1;
     int32 Level = 2;
 }
 
-message C2M_ChangeLevel { //IMessage
+message C2S_ChangeLevel { 
     int32 AddLevel = 1;
 }
 
-message C2M_SyncPlayerInfo {
+message C2S_SyncPlayerInfo {
 
 }
 
-message M2C_SyncPlayerInfo {
+message S2C_SyncPlayerInfo {
 
 }
 
-message C2M_PublicSyncPlayerInfo {
+message C2S_PublicSyncPlayerInfo {
 
 }
 
-message M2C_PublicSyncPlayerInfo {
+message S2C_PublicSyncPlayerInfo {
 
 }

@@ -5,14 +5,14 @@ option go_package = "bitbucket.org/east-eden/server/proto/global";
 option csharp_namespace = "global";
 
 // 客户端账号登陆
-message C2M_AccountLogon 
+message C2S_AccountLogon 
 {
 	int64 UserId = 1;
     int64 AccountId = 2;
     string AccountName = 3;
 }
 
-message M2C_AccountLogon 
+message S2C_AccountLogon 
 {
 	int64 UserId = 1;
     int64 AccountId = 2;
@@ -22,23 +22,23 @@ message M2C_AccountLogon
 }
 
 // 客户端心跳包
-message C2M_HeartBeat {
+message C2S_HeartBeat {
 }
 
-message M2C_HeartBeat {
+message S2C_HeartBeat {
     uint32  timestamp = 1;
 }
 
 // 客户端主动断开连接
-message C2M_AccountDisconnect {
+message C2S_AccountDisconnect {
 
 }
 
 // ping
-message C2M_Ping {
+message C2S_Ping {
     int32 Ping = 1;
 }
 
-message M2C_Pong {
+message S2C_Pong {
     int32 Pong = 1;
 }

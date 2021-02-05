@@ -5,6 +5,19 @@ option go_package = "bitbucket.org/east-eden/server/proto/global";
 option csharp_namespace = "global";
 
 ////////////////////////////////////////////////
+// 客户端发送此消息后必须收到服务器返回的ServerResponseMessage消息后才能接触屏幕锁定
+message C2S_WaitResponseMessage {
+    int32 MsgId = 1;            // 客户端全局自增消息id
+    uint32 InnerMsgCrc = 2;     // 实际发送的消息名crc，例如Crc32("C2S_AddHero")
+    bytes InnerMsgData = 3;     // 实际消息二进制数据
+}
+
+message S2C_WaitResponseMessage {
+    int32 MsgId = 1;        // 透传客户端发送过来的MsgId
+    int32 ErrCode = 2;      // 处理客户端请求后产生的错误码
+}
+
+////////////////////////////////////////////////
 // Account 
 message AccountInfo {
     int64 id = 1;
