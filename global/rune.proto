@@ -14,40 +14,40 @@ message Rune {
     repeated global.RuneAtt Atts = 4; // 1条主属性+5条副属性
 }
 
-message C2M_AddRune { 
+message C2S_AddRune { 
     int32 TypeId = 1;
 }
 
-message C2M_DelRune { 
+message C2S_DelRune { 
     int64 Id = 1;
 }
 
-message C2M_QueryRunes { 
+message C2S_QueryRunes { 
 
 }
 
-message M2C_RuneList { 
+message S2C_RuneList { 
     repeated Rune runes = 1;
 }
 
-message M2C_RuneAdd { 
+message S2C_RuneAdd { 
     Rune rune = 1;
 }
 
-message M2C_RuneUpdate { 
+message S2C_RuneUpdate { 
     Rune rune = 1;
 }
 
-message M2C_DelRune { 
+message S2C_DelRune { 
     int64 RuneId = 1;
 }
 
-message C2M_PutonRune {
+message C2S_PutonRune {
     int64 HeroId = 1;
     int64 RuneId = 2;
 }
 
-message C2M_TakeoffRune {
+message C2S_TakeoffRune {
     int64 HeroId = 1;
     int32 Pos = 2;
 }

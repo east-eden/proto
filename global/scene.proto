@@ -7,11 +7,11 @@ option csharp_namespace = "global";
 
 ////////////////////////////////////////////////
 // scene
-message C2M_StartStageCombat { //IRequest
+message C2S_StartStageCombat { //IRequest
 	int32 RpcId = 90;
 }
 
-message M2C_StartStageCombat { //IResponse
+message S2C_StartStageCombat { //IResponse
 	int32 RpcId = 90;
 	int32 Error = 91;
 	string Message = 92;

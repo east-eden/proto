@@ -6,35 +6,35 @@ option csharp_namespace = "global";
 
 import "global/define.proto";
 
-message C2M_AddItem { //IMessage
+message C2S_AddItem { 
     int32 TypeId = 1;
 }
 
-message C2M_DelItem { //IMessage
+message C2S_DelItem { 
     int64 Id = 1;
 }
 
-message C2M_UseItem { //IMessage
+message C2S_UseItem { 
     int64 ItemId = 1;
 }
 
-message C2M_QueryItems { //IMessage
+message C2S_QueryItems { 
 
 }
 
-message M2C_ItemList { //IMessage
+message S2C_ItemList { 
     repeated global.Item items = 1;
 }
 
-message M2C_ItemAdd { //IMessage
+message S2C_ItemAdd { 
     global.Item item = 1;
 }
 
-message M2C_ItemUpdate { //IMessage
+message S2C_ItemUpdate { 
     global.Item item = 1;
 }
 
-message M2C_DelItem { //IMessage
+message S2C_DelItem { 
     int64 ItemId = 1;
 }
 

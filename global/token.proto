@@ -12,18 +12,18 @@ message Token {
     int64 MaxHold = 3;
 }
 
-message C2M_AddToken {
+message C2S_AddToken {
     int32 Type = 1;
     int64 Value = 2;
 }
 
-message C2M_QueryTokens {
+message C2S_QueryTokens {
 }
 
-message M2C_TokenList {
+message S2C_TokenList {
     repeated Token Tokens = 1;
 }
 
-message M2C_TokenUpdate {
+message S2C_TokenUpdate {
     Token Info = 1;
 }
