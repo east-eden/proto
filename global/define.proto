@@ -49,6 +49,13 @@ message Hero {
 }
 
 ////////////////////////////////////////////////
+// Fragment
+message Fragment {
+    int32 Id = 1;       // 碎片对应的英雄id
+    int32 Num = 2;      // 碎片数量
+}
+
+////////////////////////////////////////////////
 // Item
 message Item { // IMessage
   int64 Id = 1;
