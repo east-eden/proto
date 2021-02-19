@@ -7,64 +7,69 @@ option csharp_namespace = "global";
 ////////////////////////////////////////////////
 // 客户端发送此消息后必须收到服务器返回的ServerResponseMessage消息后才能接触屏幕锁定
 message C2S_WaitResponseMessage {
-    int32 MsgId = 1;            // 客户端全局自增消息id
-    uint32 InnerMsgCrc = 2;     // 实际发送的消息名crc，例如Crc32("C2S_AddHero")
-    bytes InnerMsgData = 3;     // 实际消息二进制数据
+  int32 MsgId = 1;        // 客户端全局自增消息id
+  uint32 InnerMsgCrc = 2; // 实际发送的消息名crc，例如Crc32("C2S_AddHero")
+  bytes InnerMsgData = 3; // 实际消息二进制数据
 }
 
 message S2C_WaitResponseMessage {
-    int32 MsgId = 1;        // 透传客户端发送过来的MsgId
-    int32 ErrCode = 2;      // 处理客户端请求后产生的错误码
+  int32 MsgId = 1;   // 透传客户端发送过来的MsgId
+  int32 ErrCode = 2; // 处理客户端请求后产生的错误码
 }
 
 ////////////////////////////////////////////////
-// Account 
+// Account
 message AccountInfo {
-    int64 id = 1;
-    string name = 2;
-    int32 level = 3;
+  int64 id = 1;
+  string name = 2;
+  int32 level = 3;
 }
 
 ////////////////////////////////////////////////
-// Att 
+// Att
 message Att {
-    int32 AttType = 1;
-    int64 AttValue = 2;
+  int32 AttType = 1;
+  int64 AttValue = 2;
 }
 
 ////////////////////////////////////////////////
 // Hero
 message Hero {
-    int64 Id = 1;
-    int32 TypeId = 2;
-    int64 Exp = 3;
-    int32 Level = 4;
-    repeated int64 EquipList = 5;   // 装备
-    repeated int64 RuneList = 6;    // 魂石
+  int64 Id = 1;
+  int32 TypeId = 2;
+  int32 Exp = 3;
+  int32 Level = 4;
+  int32 PromoteLevel = 5;   // 突破等级
+  int32 Star = 6;           // 星级
+  int32 NormalSpellId = 7;  // 普攻技能id
+  int32 SpecialSpellId = 8; // 大招技能id
+  int32 RageSpellId = 9;    // 怒气技能id
+  int32 Friendship = 10;    // 友好度
+  int32 FashionId = 11;     // 时装id
 }
 
 ////////////////////////////////////////////////
 // Item
-message Item { //IMessage
-    int64 Id = 1;
-    int32 TypeId = 2;
-    int32 Num = 3;
-    int64 EquipObjId = 4;   // 装备者objid
+message Item { // IMessage
+  int64 Id = 1;
+  int32 TypeId = 2;
+  int32 Num = 3;
+  int64 EquipObjId = 4; // 装备者objid
 }
 
 ////////////////////////////////////////////////
 // player
-message PlayerInfo{
-    int64 id = 1;
-    int64 account_id = 2;
-    string name = 3;
-    int64 exp = 4;
-    int32 level = 5;
+message PlayerInfo {
+  int64 id = 1;
+  int64 account_id = 2;
+  string name = 3;
+  int64 exp = 4;
+  int32 level = 5;
 }
 
 ////////////////////////////////////////////////
 // Rune
 message RuneAtt {
-    int32 AttType = 1;
-    int64 AttValue = 2;
+  int32 AttType = 1;
+  int64 AttValue = 2;
 }
