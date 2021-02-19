@@ -1,0 +1,25 @@
+syntax = "proto3";
+package global;
+
+option go_package = "bitbucket.org/east-eden/server/proto/global";
+option csharp_namespace = "global";
+
+import "global/define.proto";
+
+message C2S_QueryFragments { 
+
+}
+
+message S2C_FragmentsList { 
+    repeated Fragment frags = 1;
+}
+
+// 碎片更新
+message S2C_FragmentsUpdate {
+    repeated Fragment frags = 1;
+}
+
+// 碎片合成
+message C2S_FragmentsCompose {
+    int32 FragId = 1;
+}
