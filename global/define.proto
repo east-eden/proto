@@ -51,17 +51,31 @@ message Hero {
 ////////////////////////////////////////////////
 // Fragment
 message Fragment {
-    int32 Id = 1;       // 碎片对应的英雄id
-    int32 Num = 2;      // 碎片数量
+  int32 Id = 1;  // 碎片对应的英雄id
+  int32 Num = 2; // 碎片数量
 }
 
 ////////////////////////////////////////////////
 // Item
-message Item { // IMessage
+message Item {
   int64 Id = 1;
   int32 TypeId = 2;
   int32 Num = 3;
-  int64 EquipObjId = 4; // 装备者objid
+}
+
+////////////////////////////////////////////////
+// Equip
+message EquipData {
+  int32 Exp = 1;      // 经验
+  int32 Level = 2;    // 等级
+  int32 Promote = 3;  // 突破等级
+  bool Lock = 4;      // 锁定
+  int64 EquipObj = 5; // 装备者id
+}
+
+message Equip {
+  Item Item = 1;           // 物品data
+  EquipData EquipData = 2; // 装备data
 }
 
 ////////////////////////////////////////////////
