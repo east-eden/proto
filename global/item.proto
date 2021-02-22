@@ -38,3 +38,13 @@ message S2C_DelItem {
     int64 ItemId = 1;
 }
 
+/////////////////////////////////////////////
+// 装备
+message C2S_EquipLevelup {
+    int64 EquipId = 1;
+}
+
+message S2C_EquipUpdate {
+    int64 EquipId = 1;
+    global.EquipData EquipData = 2;
+}
