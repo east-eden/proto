@@ -1,4 +1,4 @@
-module bitbucket.org/east-eden/proto
+module github.com/east-eden/proto
 
 go 1.15
 
