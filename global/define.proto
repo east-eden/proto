@@ -26,13 +26,6 @@ message AccountInfo {
 }
 
 ////////////////////////////////////////////////
-// Att
-message Att {
-  int32 AttType = 1;
-  int64 AttValue = 2;
-}
-
-////////////////////////////////////////////////
 // Hero
 message Hero {
   int64 Id = 1;

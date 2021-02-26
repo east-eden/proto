@@ -44,7 +44,11 @@ message C2S_TakeoffEquip {
 
 ////////////////////////////////////////////////
 // Att
+message C2S_QueryHeroAtt {
+    int64 HeroId = 1;
+}
+
 message S2C_HeroAttUpdate {
     int64 HeroId = 1;
-    repeated Att AttList = 2;
+    repeated int32 AttValue = 2;
 }
