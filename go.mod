@@ -1,4 +1,4 @@
-module bitbucket.org/east-eden/proto
+module bitbucket.org/funplus/proto
 
 go 1.15
 
