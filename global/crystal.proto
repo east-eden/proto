@@ -1,0 +1,53 @@
+syntax = "proto3";
+package global;
+
+option go_package = "bitbucket.org/funplus/server/proto/global";
+option csharp_namespace = "global";
+
+import "global/define.proto";
+
+
+message Crystal { 
+    int64 Id = 1;
+    int32 TypeId = 2;
+    int64 EquipObjId = 3;   // 装备者objid
+    repeated global.CrystalAtt Atts = 4; // 1条主属性+5条副属性
+}
+
+message C2S_AddCrystal { 
+    int32 TypeId = 1;
+}
+
+message C2S_DelCrystal { 
+    int64 Id = 1;
+}
+
+message C2S_QueryCrystals { 
+
+}
+
+message S2C_CrystalList { 
+    repeated Crystal crystals = 1;
+}
+
+message S2C_CrystalAdd { 
+    Crystal crystal = 1;
+}
+
+message S2C_CrystalUpdate { 
+    Crystal crystal = 1;
+}
+
+message S2C_DelCrystal { 
+    int64 CrystalId = 1;
+}
+
+message C2S_PutonCrystal {
+    int64 HeroId = 1;
+    int64 CrystalId = 2;
+}
+
+message C2S_TakeoffCrystal {
+    int64 HeroId = 1;
+    int32 Pos = 2;
+}

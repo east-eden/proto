@@ -82,8 +82,8 @@ message PlayerInfo {
 }
 
 ////////////////////////////////////////////////
-// Rune
-message RuneAtt {
+// Crystal
+message CrystalAtt {
   int32 AttType = 1;
   int64 AttValue = 2;
 }
