@@ -72,6 +72,27 @@ message Equip {
 }
 
 ////////////////////////////////////////////////
+// Crystal
+// 晶石属性
+message CrystalAtt {
+  int32 AttRepoId = 1;    // 属性库id
+  int32 AttRandRatio = 2; // 属性随机区间系数
+}
+
+message CrystalData {
+  int32 Level = 1;                  // 等级
+  int32 Exp = 2;                    // 经验
+  int64 CrystalObj = 3;             // 装备者id
+  CrystalAtt MainAtt = 4;           // 主属性
+  repeated CrystalAtt ViceAtts = 5; // 多条副属性
+}
+
+message Crystal {
+  Item Item = 1;               // 物品data
+  CrystalData CrystalData = 2; // 晶石属性
+}
+
+////////////////////////////////////////////////
 // player
 message PlayerInfo {
   int64 id = 1;
@@ -79,11 +100,4 @@ message PlayerInfo {
   string name = 3;
   int64 exp = 4;
   int32 level = 5;
-}
-
-////////////////////////////////////////////////
-// Rune
-message RuneAtt {
-  int32 AttType = 1;
-  int64 AttValue = 2;
 }
