@@ -1,7 +1,7 @@
 syntax = "proto3";
 package global;
 
-option go_package = "github.com/east-eden/server/proto/global";
+option go_package = "bitbucket.org/funplus/server/proto/global";
 option csharp_namespace = "global";
 
 import "global/define.proto";
@@ -44,7 +44,11 @@ message C2S_TakeoffEquip {
 
 ////////////////////////////////////////////////
 // Att
+message C2S_QueryHeroAtt {
+    int64 HeroId = 1;
+}
+
 message S2C_HeroAttUpdate {
     int64 HeroId = 1;
-    repeated Att AttList = 2;
+    repeated int32 AttValue = 2;
 }

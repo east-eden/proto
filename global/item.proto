@@ -1,50 +1,56 @@
 syntax = "proto3";
 package global;
 
-option go_package = "github.com/east-eden/server/proto/global";
+option go_package = "bitbucket.org/funplus/server/proto/global";
 option csharp_namespace = "global";
 
 import "global/define.proto";
 
-message C2S_AddItem { 
-    int32 TypeId = 1;
-}
+message C2S_AddItem { int32 TypeId = 1; }
 
-message C2S_DelItem { 
-    int64 Id = 1;
-}
+message C2S_DelItem { int64 Id = 1; }
 
-message C2S_UseItem { 
-    int64 ItemId = 1;
-}
+message C2S_UseItem { int64 ItemId = 1; }
 
-message C2S_QueryItems { 
+message C2S_QueryItems {}
 
-}
+message S2C_ItemList { repeated global.Item items = 1; }
 
-message S2C_ItemList { 
-    repeated global.Item items = 1;
-}
+message S2C_ItemAdd { global.Item item = 1; }
 
-message S2C_ItemAdd { 
-    global.Item item = 1;
-}
+message S2C_ItemUpdate { global.Item item = 1; }
 
-message S2C_ItemUpdate { 
-    global.Item item = 1;
-}
-
-message S2C_DelItem { 
-    int64 ItemId = 1;
-}
+message S2C_DelItem { int64 ItemId = 1; }
 
 /////////////////////////////////////////////
 // 装备
-message C2S_EquipLevelup {
-    int64 EquipId = 1;
-}
+message C2S_EquipLevelup { int64 EquipId = 1; }
 
 message S2C_EquipUpdate {
-    int64 EquipId = 1;
-    global.EquipData EquipData = 2;
+  int64 EquipId = 1;
+  global.EquipData EquipData = 2;
+}
+
+/////////////////////////////////////////////
+// 晶石
+message S2C_CrystalUpdate {
+  int64 CrystalId = 1;                // 晶石id
+  global.CrystalData CrystalData = 2; // 晶石数据
+}
+
+message C2S_PutonCrystal {
+  int64 HeroId = 1;
+  int64 CrystalId = 2;
+}
+
+message C2S_TakeoffCrystal {
+  int64 HeroId = 1;
+  int32 Pos = 2;
+}
+
+// 测试消息
+message C2S_CrystalLevelup { int64 CrystalId = 1; }
+message S2C_CrystalAttUpdate {
+  int64 CrystalId = 1;
+  repeated int32 AttValue = 2;
 }

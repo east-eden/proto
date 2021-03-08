@@ -1,14 +1,12 @@
 syntax = "proto3";
 package combat;
 
-option go_package = "github.com/east-eden/server/proto/server/combat";
-
-import "global/define.proto";
+option go_package = "bitbucket.org/funplus/server/proto/server/combat";
 
 // unit scene att
 message UnitInfo {
     int32 UnitTypeId = 1;
-    repeated global.Att UnitAttList = 2;
+    repeated int32 UnitAttValue = 2;
 }
 
 ///////////////////////////////////////////////////
