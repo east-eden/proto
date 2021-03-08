@@ -24,7 +24,11 @@ message S2C_DelItem { int64 ItemId = 1; }
 
 /////////////////////////////////////////////
 // 装备
-message C2S_EquipLevelup { int64 EquipId = 1; }
+message C2S_EquipLevelup {
+  int64 ItemId = 1;              // 升级的装备id
+  repeated int64 StuffItems = 2; // 吞噬的装备id列表
+  repeated int64 ExpItems = 3;   // 经验道具
+}
 
 message S2C_EquipUpdate {
   int64 EquipId = 1;
@@ -48,8 +52,13 @@ message C2S_TakeoffCrystal {
   int32 Pos = 2;
 }
 
-// 测试消息
-message C2S_CrystalLevelup { int64 CrystalId = 1; }
+message C2S_CrystalLevelup {
+  int64 ItemId = 1;              // 升级的晶石id
+  repeated int64 StuffItems = 2; // 吞噬的晶石id列表
+  repeated int64 ExpItems = 3;   // 经验道具
+}
+
+// 测试att
 message S2C_CrystalAttUpdate {
   int64 CrystalId = 1;
   repeated int32 AttValue = 2;
