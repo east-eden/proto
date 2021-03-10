@@ -6,49 +6,32 @@ option csharp_namespace = "global";
 
 import "global/define.proto";
 
-message C2S_AddHero { 
-    int32 TypeId = 1;
+message C2S_AddHero { int32 TypeId = 1; }
+
+message C2S_DelHero { int64 Id = 1; }
+
+message C2S_QueryHeros {}
+
+// 升级
+message C2S_HeroLevelup {
+  int64 HeroId = 1;        // 英雄id
+  repeated int64 StuffItems = 2; // 经验物品
 }
 
-message C2S_DelHero { 
-    int64 Id = 1;
-}
+// 突破
+message C2S_HeroPromote { int64 HeroId = 1; }
 
-message C2S_QueryHeros { 
+message S2C_HeroUpdate { global.Hero info = 1; }
 
-}
+message S2C_HeroList { repeated global.Hero heros = 1; }
 
-message S2C_HeroUpdate { 
-    Hero info = 1;
-}
-
-message S2C_HeroList { 
-    repeated Hero heros = 1;
-}
-
-message S2C_HeroInfo { 
-    Hero info = 1;
-}
-
-////////////////////////////////////////////////
-// Equip
-message C2S_PutonEquip { 
-    int64 HeroId = 1;
-    int64 EquipId = 2;
-}
-
-message C2S_TakeoffEquip { 
-    int64 HeroId = 1;
-    int32 Pos = 2;      // 0-3
-}
+message S2C_HeroInfo { global.Hero info = 1; }
 
 ////////////////////////////////////////////////
 // Att
-message C2S_QueryHeroAtt {
-    int64 HeroId = 1;
-}
+message C2S_QueryHeroAtt { int64 HeroId = 1; }
 
 message S2C_HeroAttUpdate {
-    int64 HeroId = 1;
-    repeated int32 AttValue = 2;
+  int64 HeroId = 1;
+  repeated int32 AttValue = 2;
 }
