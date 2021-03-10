@@ -23,31 +23,7 @@ message S2C_QueryPlayerInfo {
 	int32 Error = 2;
 }
 
-message C2S_ChangeExp { 
-    int64 AddExp = 1;
-}
-
 message S2C_ExpUpdate { 
-    int64 Exp = 1;
+    int32 Exp = 1;
     int32 Level = 2;
-}
-
-message C2S_ChangeLevel { 
-    int32 AddLevel = 1;
-}
-
-message C2S_SyncPlayerInfo {
-
-}
-
-message S2C_SyncPlayerInfo {
-
-}
-
-message C2S_PublicSyncPlayerInfo {
-
-}
-
-message S2C_PublicSyncPlayerInfo {
-
 }
