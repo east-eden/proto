@@ -18,6 +18,7 @@ pipelines:
           - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/server.git
           - ls -al
           - cd proto
+          - COMMIT_SHORT_HASH=`git rev-parse --short HEAD`
           - cp ./bin/protoc /bin/
           - go get google.golang.org/protobuf/cmd/protoc-gen-go
           - go get github.com/micro/protoc-gen-micro/v2
@@ -28,5 +29,5 @@ pipelines:
           - git status
           - git config --global user.email "commits-noreply@bitbucket.org"
           - git config --global user.name "bitbucket-pipelines"
-          - git commit -am '[proto-pipeline]:$BITBUCKET_PIPELINE_UUID auto commit ...'
+          - git commit -am "[proto-pipeline]:$COMMIT_SHORT_HASH auto commit ..."
           - git push origin $BITBUCKET_BRANCH
