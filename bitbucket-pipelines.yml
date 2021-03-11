@@ -11,6 +11,7 @@ pipelines:
   default:
     - step:
         name: 'generate server go code'
+        image: golang:1.15
         script:
           - pwd
           - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/proto.git
@@ -18,8 +19,7 @@ pipelines:
           - ls -al
           - cd proto
           - cp ./bin/protoc /bin/
-          - cp ./bin/protoc-gen-go /bin/
-          - cp ./bin/protoc-gen-micro /bin/
+          - go get google.golang.org/protobuf/cmd/protoc-gen-go
           - go get github.com/micro/protoc-gen-micro/v2
           - protoc --version
           - protoc-gen-go --version
