@@ -6,8 +6,6 @@ option csharp_namespace = "global";
 
 import "global/define.proto";
 
-message C2S_AddHero { int32 TypeId = 1; }
-
 message C2S_DelHero { int64 Id = 1; }
 
 message C2S_QueryHeros {}

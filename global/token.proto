@@ -6,11 +6,6 @@ option csharp_namespace = "global";
 
 ////////////////////////////////////////////////
 // Token
-message C2S_AddToken {
-    int32 Type = 1;
-    int32 Value = 2;
-}
-
 message C2S_QueryTokens {
 }
 
