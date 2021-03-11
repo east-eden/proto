@@ -19,6 +19,7 @@ pipelines:
           - ls -al
           - cd proto
           - COMMIT_SHORT_HASH=`git rev-parse --short HEAD`
+          - COMMIT_MESSAGE=`git log --format=%B -n 1`
           - cp ./bin/protoc /bin/
           - go get google.golang.org/protobuf/cmd/protoc-gen-go
           - go get github.com/micro/protoc-gen-micro/v2
@@ -29,5 +30,5 @@ pipelines:
           - git status
           - git config --global user.email "commits-noreply@bitbucket.org"
           - git config --global user.name "bitbucket-pipelines"
-          - git commit -am "[proto-pipeline]:$COMMIT_SHORT_HASH auto commit ..."
+          - git commit -am "[proto-pipeline] hash_id:$COMMIT_SHORT_HASH commit_msg:$COMMIT_MESSAGE ..."
           - git push origin $BITBUCKET_BRANCH
