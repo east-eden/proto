@@ -46,6 +46,11 @@ message C2S_EquipPromote {
   int64 ItemId = 1; // 突破的装备id
 }
 
+// 升星
+message C2S_EquipStarup {
+  int64 ItemId = 1; // 升星的装备id
+}
+
 // 装备信息更新
 message S2C_EquipUpdate {
   int64 EquipId = 1;
