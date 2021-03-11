@@ -26,7 +26,7 @@ pipelines:
           - make linux_proto
           - cd ../server
           - git status
-          - git config --global user.email "tao.wan@centurygame.com"
-          - git config --global user.name "万韬"
-          - git commit -am "bitbucket pipeline generate proto source code ..."
+          - git config --global user.email "commits-noreply@bitbucket.org"
+          - git config --global user.name "bitbucket-pipelines"
+          - git commit -am '[proto-pipeline]:$BITBUCKET_PIPELINE_UUID auto commit ...'
           - git push origin $BITBUCKET_BRANCH
