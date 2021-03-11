@@ -20,6 +20,9 @@ pipelines:
           - cp ./bin/protoc /bin/
           - cp ./bin/protoc-gen-go /bin/
           - cp ./bin/protoc-gen-micro /bin/
+          - protoc --version
+          - protoc-gen-go --version
+          - protoc-gen-micro --version
           - git status
           - make linux_proto
           - cd ../server
