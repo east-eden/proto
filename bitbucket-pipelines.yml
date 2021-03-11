@@ -4,18 +4,24 @@
 # You can specify a custom docker image from Docker Hub as your build environment.
 image: atlassian/default-image:2
 
+clone:
+  enabled: false
+
 pipelines:
   default:
-    - parallel:
-      - step:
-          name: 'Build and Test'
-          script:
-            - echo "Your build and test goes here..."
-      - step:
-          name: 'Lint'
-          script:
-            - echo "Your linting goes here..."
-      - step:
-          name: 'Security scan'
-          script:
-            - echo "Your security scan goes here..."
+    - step:
+        name: 'generate server go code'
+        script:
+          - pwd
+          - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/proto.git
+          - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/server.git
+          - ls -al
+          - cd proto
+          - git status
+          - make linux_proto
+          - cd ../server
+          - git status
+          - git config --global user.email "tao.wan@centurygame.com"
+          - git config --global user.name "万韬"
+          - git commit -am "bitbucket pipeline generate proto source code ..."
+          - git push origin $BITBUCKET_BRANCH
