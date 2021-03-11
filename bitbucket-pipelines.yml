@@ -16,7 +16,7 @@ pipelines:
           - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/proto.git
           - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/server.git
           - ls -al
-          - where ls
+          - which ls
           - cd proto
           - cp ./bin/protoc-gen-go /usr/local/bin/
           - cp ./bin/protoc-gen-micro /usr/local/bin/
