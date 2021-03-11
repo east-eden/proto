@@ -23,8 +23,6 @@ pipelines:
           - go get github.com/micro/protoc-gen-micro/v2
           - protoc --version
           - protoc-gen-go --version
-          - protoc-gen-micro --version
-          - git status
           - make linux_proto
           - cd ../server
           - git status
