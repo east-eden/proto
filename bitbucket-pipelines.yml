@@ -32,10 +32,10 @@ pipelines:
           - git status
           - git config --global user.email "commits-noreply@bitbucket.org"
           - git config --global user.name "bitbucket-pipelines"
-          - git commit -am "[proto-pipeline] hash_id:$COMMIT_SHORT_HASH commit_msg:$COMMIT_MESSAGE ..."
-          - git push origin $BITBUCKET_BRANCH
+          - if [ ! git commit -am "[proto-pipeline] hash_id:$COMMIT_SHORT_HASH commit_msg:$COMMIT_MESSAGE ..." ]; then echo "nothing need to be commited"
+          - if [ ! git push origin $BITBUCKET_BRANCH ]; then echo "nothing need to be pushed"
 
           - cd ../ee_client
           - git status
-          - git commit -am "[proto-pipeline] hash_id:$COMMIT_SHORT_HASH commit_msg:$COMMIT_MESSAGE ..."
-          - git push origin $BITBUCKET_BRANCH
+          - if [ ! git commit -am "[proto-pipeline] hash_id:$COMMIT_SHORT_HASH commit_msg:$COMMIT_MESSAGE ..." ]; then echo "nothing need to be commited"
+          - if [ ! git push origin $BITBUCKET_BRANCH ]; then echo "nothing need to be pushed"
