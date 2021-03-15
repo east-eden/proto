@@ -37,5 +37,6 @@ pipelines:
 
           - cd ../ee_client
           - git status
+          - git add proto/*.cs || true
           - git commit -am "[proto-pipeline] hash_id:$COMMIT_SHORT_HASH commit_msg:$COMMIT_MESSAGE ..." || true
           - git push origin $BITBUCKET_BRANCH || true
