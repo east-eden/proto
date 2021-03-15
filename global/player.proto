@@ -6,24 +6,24 @@ option csharp_namespace = "global";
 
 import "global/define.proto";
 
+message C2S_CreatePlayer { string name = 1; }
 
-message C2S_CreatePlayer { 
-    string name = 1;
+message S2C_CreatePlayer { PlayerInfo info = 1; }
+
+message C2S_QueryPlayerInfo {}
+
+message S2C_QueryPlayerInfo {
+  PlayerInfo info = 1;
+  int32 Error = 2;
 }
 
-message S2C_CreatePlayer { 
-    PlayerInfo info = 1;
+message S2C_ExpUpdate {
+  int32 Exp = 1;
+  int32 Level = 2;
 }
 
-message C2S_QueryPlayerInfo { 
-}
-
-message S2C_QueryPlayerInfo { 
-    PlayerInfo info = 1;
-	int32 Error = 2;
-}
-
-message S2C_ExpUpdate { 
-    int32 Exp = 1;
-    int32 Level = 2;
-}
+// gm 命令:
+// gm player level 10
+// gm hero add 1
+// gm item add 1 10
+message C2S_GmCmd { string cmd = 1; }

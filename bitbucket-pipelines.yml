@@ -16,6 +16,7 @@ pipelines:
           - pwd
           - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/proto.git
           - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/server.git
+          - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/ee_client.git
           - ls -al
           - cd proto
           - COMMIT_SHORT_HASH=`git rev-parse --short HEAD`
@@ -26,9 +27,15 @@ pipelines:
           - protoc --version
           - protoc-gen-go --version
           - make linux_proto
+
           - cd ../server
           - git status
           - git config --global user.email "commits-noreply@bitbucket.org"
           - git config --global user.name "bitbucket-pipelines"
+          - git commit -am "[proto-pipeline] hash_id:$COMMIT_SHORT_HASH commit_msg:$COMMIT_MESSAGE ..."
+          - git push origin $BITBUCKET_BRANCH
+
+          - cd ../ee_client
+          - git status
           - git commit -am "[proto-pipeline] hash_id:$COMMIT_SHORT_HASH commit_msg:$COMMIT_MESSAGE ..."
           - git push origin $BITBUCKET_BRANCH
