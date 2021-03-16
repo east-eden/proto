@@ -30,6 +30,7 @@ pipelines:
 
           - cd ../server
           - git status
+          - git add proto/* || true
           - git config --global user.email "commits-noreply@bitbucket.org"
           - git config --global user.name "bitbucket-pipelines"
           - git commit -am "[proto-pipeline] hash_id:$COMMIT_SHORT_HASH commit_msg:$COMMIT_MESSAGE ..." || true
