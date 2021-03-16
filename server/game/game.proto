@@ -11,6 +11,9 @@ import "global/define.proto";
 ///////////////////////////////////////////////////
 service GameService {
     rpc GetRemotePlayerInfo (GetRemotePlayerInfoRq) returns (GetRemotePlayerInfoRs) {}
+    rpc KickAccountOffline (KickAccountOfflineRq) returns (KickAccountOfflineRs) {}
+
+    // test
     rpc UpdatePlayerExp (UpdatePlayerExpRequest) returns (UpdatePlayerExpReply) {}
 }
 
@@ -29,4 +32,14 @@ message UpdatePlayerExpRequest {
 message UpdatePlayerExpReply {
     int64 id = 1;
     int64 exp = 2;
+}
+
+// game节点中的account提下线
+message KickAccountOfflineRq {
+    int64 accountId = 1;
+}
+
+message KickAccountOfflineRs {
+    int64 accountId = 1;
+    int32 errorCode = 2;
 }
