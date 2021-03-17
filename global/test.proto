@@ -10,4 +10,4 @@ message C2S_TestCrystalRandom {
   int32 CrystalRandomNum = 1;   // 随机生成晶石个数
 }
 
-message S2C_TestCrystalRandomReport { string Report = 1; }
+message S2C_TestCrystalRandomReport { repeated string Report = 1; }
