@@ -37,6 +37,7 @@ message UpdatePlayerExpReply {
 // game节点中的account提下线
 message KickAccountOfflineRq {
     int64 accountId = 1;
+    int32 gameId = 2;
 }
 
 message KickAccountOfflineRs {
