@@ -6,15 +6,19 @@ option csharp_namespace = "global";
 
 import "global/define.proto";
 
+// 创建角色
 message C2S_CreatePlayer { string name = 1; }
 
 message S2C_CreatePlayer { PlayerInfo info = 1; }
 
-message C2S_QueryPlayerInfo {}
-
-message S2C_QueryPlayerInfo {
-  PlayerInfo info = 1;
-  int32 Error = 2;
+// 玩家登陆初始信息
+message S2C_PlayerInitInfo {
+  PlayerInfo info = 1;           // 玩家基本信息
+  repeated Hero heros = 2;       // 英雄数据
+  repeated Item items = 3;       // 物品数据
+  repeated Equip equips = 4;     // 装备数据
+  repeated Crystal crystals = 5; // 晶石数据
+  repeated Fragment frags = 6;   // 碎片数据
 }
 
 message S2C_ExpUpdate {
