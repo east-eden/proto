@@ -13,18 +13,32 @@ message S2C_CreatePlayer { PlayerInfo info = 1; }
 
 // 玩家登陆初始信息
 message S2C_PlayerInitInfo {
-  PlayerInfo info = 1;           // 玩家基本信息
-  repeated Hero heros = 2;       // 英雄数据
-  repeated Item items = 3;       // 物品数据
-  repeated Equip equips = 4;     // 装备数据
-  repeated Crystal crystals = 5; // 晶石数据
-  repeated Fragment frags = 6;   // 碎片数据
+  PlayerInfo Info = 1;           // 玩家基本信息
+  repeated Hero Heros = 2;       // 英雄数据
+  repeated Item Items = 3;       // 物品数据
+  repeated Equip Equips = 4;     // 装备数据
+  repeated Crystal Crystals = 5; // 晶石数据
+  repeated Fragment Frags = 6;   // 碎片数据
+  repeated Chapter Chapters = 7; // 章节信息
+  repeated Stage Stages = 8;     // 关卡信息
 }
 
 message S2C_ExpUpdate {
   int32 Exp = 1;
   int32 Level = 2;
 }
+
+// 扫荡关卡
+message C2S_StageSweep {
+  int32 StageId = 1;
+  int32 Times = 2;
+}
+
+// 章节信息更新
+message S2C_ChapterUpdate { Chapter Chapter = 1; }
+
+// 关卡信息更新
+message S2C_StageUpdate { Stage Stage = 1; }
 
 // gm 命令:
 // gm player level 10

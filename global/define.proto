@@ -95,9 +95,24 @@ message Crystal {
 ////////////////////////////////////////////////
 // player
 message PlayerInfo {
-  int64 id = 1;
-  int64 account_id = 2;
-  string name = 3;
-  int32 exp = 4;
-  int32 level = 5;
+  int64 Id = 1;
+  int64 AccountId = 2;
+  string Name = 3;
+  int32 Exp = 4;
+  int32 Level = 5;
+}
+
+////////////////////////////////////////////////
+// 章节 & 关卡信息
+message Chapter {
+  int32 Id = 1;              // 章节id
+  int32 Stars = 2;           // 当前星数
+  repeated bool Rewards = 3; // 是否已领取章节奖励
+}
+
+message Stage {
+  int32 Id = 1;                 // 关卡id
+  int32 ChallengeTimes = 2;     // 已挑战次数
+  bool FirstReward = 3;         // 是否已领取首次通关奖励
+  repeated bool Objectives = 4; // 是否已达成目标
 }
