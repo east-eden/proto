@@ -28,8 +28,16 @@ message S2C_ExpUpdate {
   int32 Level = 2;
 }
 
+// 扫荡关卡
+message C2S_StageSweep {
+  int32 StageId = 1;
+  int32 Times = 2;
+}
+
+// 章节信息更新
 message S2C_ChapterUpdate { Chapter Chapter = 1; }
 
+// 关卡信息更新
 message S2C_StageUpdate { Stage Stage = 1; }
 
 // gm 命令:
