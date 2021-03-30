@@ -28,6 +28,11 @@ message S2C_ExpUpdate {
   int32 Level = 2;
 }
 
+message S2C_VipUpdate {
+  int32 VipExp = 1;
+  int32 VipLevel = 2;
+}
+
 // 扫荡关卡
 message C2S_StageSweep {
   int32 StageId = 1;
@@ -39,6 +44,12 @@ message S2C_ChapterUpdate { Chapter Chapter = 1; }
 
 // 关卡信息更新
 message S2C_StageUpdate { Stage Stage = 1; }
+
+// 取回体力
+message C2S_WithdrawStrengthen { int32 Value = 1; }
+
+// 购买体力
+message C2S_BuyStrengthen {}
 
 // gm 命令:
 // gm player level 10
