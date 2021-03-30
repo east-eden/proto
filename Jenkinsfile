@@ -6,15 +6,15 @@ pipeline {
         stage('检出proto') {
           steps {
             sh 'rm -rf ./proto'
-            echo 'git clone https://bitbucket.org/funplus/proto.git'
-            sh 'git clone -b ${BIT_BUCKET_PROTO_BRANCH_NAME} --depth=1 https://taowan:MTbtTpCfVwaeRdrHdynd@bitbucket.org/funplus/proto.git'
+            echo 'git clone https://github.com/east-eden/proto.git'
+            sh 'git clone -b ${BIT_BUCKET_PROTO_BRANCH_NAME} --depth=1 https://taowan:MTbtTpCfVwaeRdrHdynd@github.com/east-eden/proto.git'
           }
         }
         stage('检出server') {
           steps {
             sh 'rm -rf ./server'
-            echo 'git clone https://bitbucket.org/funplus/server.git'
-            sh 'git clone -b ${BIT_BUCKET_PROTO_BRANCH_NAME} --depth=1 https://taowan:MTbtTpCfVwaeRdrHdynd@bitbucket.org/funplus/server.git'
+            echo 'git clone https://github.com/east-eden/server.git'
+            sh 'git clone -b ${BIT_BUCKET_PROTO_BRANCH_NAME} --depth=1 https://taowan:MTbtTpCfVwaeRdrHdynd@github.com/east-eden/server.git'
           }
         }
       }
