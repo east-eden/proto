@@ -134,28 +134,32 @@ message Stage {
 }
 
 ////////////////////////////////////////////////
+// 邮件
+
+// 邮件状态
+enum MailStatus {
+  Unread = 0;            // 未读
+  Readed = 1;            // 已读
+  GainedAttachments = 2; // 已获取附件
+}
+
+// 邮件类型
+enum MailType {
+  System = 0; // 系统发送
+  Player = 1; // 玩家寄送
+}
+
 // 邮件上下文
 message MailContext {
-  int64 Id = 1;       // 邮件id
-  int64 SenderId = 2; // 发件人id
-
-  enum MailStatus {
-    Unread = 0;            // 未读
-    Readed = 1;            // 已读
-    GainedAttachments = 2; // 已获取附件
-  }
+  int64 Id = 1;          // 邮件id
+  int64 SenderId = 2;    // 发件人id
   MailStatus Status = 3; // 邮件状态
-
-  enum MailType {
-    System = 0; // 系统发送
-    Player = 1; // 玩家寄送
-  }
   MailType Type = 4;     // 邮件类型
   int32 Date = 5;        // 寄件日期
   int32 ExpireDate = 6;  // 过期日期
   string SenderName = 7; // 寄件人姓名
   string Title = 8;      // 邮件标题
-  string Context = 9;    // 邮件内容
+  string Content = 9;    // 邮件内容
 }
 
 // 邮件信息
