@@ -50,15 +50,15 @@ message Fragment {
 
 ////////////////////////////////////////////////
 // Loot 掉落信息
-message LootData {
-  enum LootType {
-    Item = 0;      // 物品
-    Token = 1;     // 代币
-    Hero = 2;      // 英雄
-    PlayerExp = 3; // 玩家经验
-    Fragment = 4;  // 碎片
-  }
+enum LootType {
+  LootItem = 0;      // 物品
+  LootToken = 1;     // 代币
+  LootHero = 2;      // 英雄
+  LootPlayerExp = 3; // 玩家经验
+  LootFragment = 4;  // 碎片
+}
 
+message LootData {
   LootType Type = 1; // 掉落类型
   int32 Misc = 2;    // 掉落参数
   int32 Num = 3;     // 掉落数量
@@ -164,8 +164,6 @@ message MailContext {
 
 // 邮件信息
 message Mail {
-  MailContext Context = 1; // 邮件上下文
-
-  message MailAttachment { LootData Data = 1; }
-  repeated MailAttachment Attachments = 2; // 附件
+  MailContext Context = 1;           // 邮件上下文
+  repeated LootData Attachments = 2; // 附件
 }

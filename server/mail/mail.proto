@@ -16,9 +16,8 @@ service mailService {
 message CreateSystemMailRq {
   int64 ReceiverId = 1;     // 收件人id
   global.MailType Type = 2; // 邮件类型
-  int32 ExpireDate = 3;     // 过期日期
-  string Title = 4;         // 邮件标题
-  string content = 5;       // 邮件内容
+  string Title = 3;         // 邮件标题
+  string content = 4;       // 邮件内容
 }
 
 message CreateMailRs {
@@ -30,9 +29,8 @@ message CreatePlayerMailRq {
   int64 ReceiverId = 1;     // 收件人id
   int64 SenderId = 2; // 发件人id
   global.MailType Type = 3; // 邮件类型
-  int32 ExpireDate = 4;     // 过期日期
-  string SenderName = 5; // 发件人姓名
-  string Title = 6;         // 邮件标题
-  string content = 7;       // 邮件内容
+  string SenderName = 4; // 发件人姓名
+  string Title = 5;         // 邮件标题
+  string content = 6;       // 邮件内容
 }
 
