@@ -9,15 +9,21 @@ import "global/define.proto";
 // service
 ///////////////////////////////////////////////////
 service mailService {
-  rpc CreateSystemMail(CreateSystemMailRq) returns (CreateMailRs) {}
-  rpc CreatePlayerMail(CreatePlayerMailRq) returns (CreateMailRs) {}
+  rpc CreateMail(CreateMailRq) returns (CreateMailRs) {}
+  rpc QueryPlayerMails(QueryPlayerMailsRq) returns (QueryPlayerMailsRs) {}
+  rpc ReadMail(ReadMailRq) returns (ReadMailRs) {}
+  rpc GainAttachments(GainAttachmentsRq) returns (GainAttachmentsRs) {}
+  rpc DelMail(DelMailRq) returns (DelMailRs) {}
 }
 
-message CreateSystemMailRq {
-  int64 ReceiverId = 1;     // 收件人id
-  global.MailType Type = 2; // 邮件类型
-  string Title = 3;         // 邮件标题
-  string content = 4;       // 邮件内容
+message CreateMailRq {
+  int64 ReceiverId = 1;                     // 收件人id
+  int64 SenderId = 2;                       // 发件人id
+  global.MailType Type = 3;                 // 邮件类型
+  string SenderName = 4;                    // 发件人姓名
+  string Title = 5;                         // 邮件标题
+  string Content = 6;                       // 邮件内容
+  repeated global.LootData Attachments = 7; // 邮件附件
 }
 
 message CreateMailRs {
@@ -25,12 +31,42 @@ message CreateMailRs {
   int64 MailId = 2;    // 邮件id
 }
 
-message CreatePlayerMailRq {
-  int64 ReceiverId = 1;     // 收件人id
-  int64 SenderId = 2; // 发件人id
-  global.MailType Type = 3; // 邮件类型
-  string SenderName = 4; // 发件人姓名
-  string Title = 5;         // 邮件标题
-  string content = 6;       // 邮件内容
+message QueryPlayerMailsRq {
+  int64 OwnerId = 1; // 邮箱主人id
 }
 
+message QueryPlayerMailsRs {
+  int32 ErrorCode = 1;
+  repeated global.Mail Mails = 2;
+}
+
+message ReadMailRq {
+  int64 OwnerId = 1; // 邮箱主人id
+  int64 MailId = 2;  // 邮件id
+}
+
+message ReadMailRs {
+  int32 ErrorCode = 1;
+  int64 MailId = 2;             // 邮件id
+  global.MailStatus Status = 3; // 邮件状态
+}
+
+message GainAttachmentsRq {
+  int64 OwnerId = 1; // 邮箱主人id
+  int64 MailId = 2;  // 邮件id
+}
+
+message GainAttachmentsRs {
+  int32 ErrorCode = 1;
+  int64 MailId = 2;
+}
+
+message DelMailRq {
+  int64 OwnerId = 1; // 邮箱主人id
+  int64 MailId = 2;  // 邮件id
+}
+
+message DelMailRs {
+  int32 ErrorCode = 1;
+  int64 MailId = 2;
+}
