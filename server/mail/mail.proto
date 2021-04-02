@@ -27,18 +27,14 @@ message CreateMailRq {
 }
 
 message CreateMailRs {
-  int32 ErrorCode = 1; // 错误码 0: 成功
-  int64 MailId = 2;    // 邮件id
+  int64 MailId = 1; // 邮件id
 }
 
 message QueryPlayerMailsRq {
   int64 OwnerId = 1; // 邮箱主人id
 }
 
-message QueryPlayerMailsRs {
-  int32 ErrorCode = 1;
-  repeated global.Mail Mails = 2;
-}
+message QueryPlayerMailsRs { repeated global.Mail Mails = 1; }
 
 message ReadMailRq {
   int64 OwnerId = 1; // 邮箱主人id
@@ -46,9 +42,8 @@ message ReadMailRq {
 }
 
 message ReadMailRs {
-  int32 ErrorCode = 1;
-  int64 MailId = 2;             // 邮件id
-  global.MailStatus Status = 3; // 邮件状态
+  int64 MailId = 1;             // 邮件id
+  global.MailStatus Status = 2; // 邮件状态
 }
 
 message GainAttachmentsRq {
@@ -56,17 +51,11 @@ message GainAttachmentsRq {
   int64 MailId = 2;  // 邮件id
 }
 
-message GainAttachmentsRs {
-  int32 ErrorCode = 1;
-  int64 MailId = 2;
-}
+message GainAttachmentsRs { int64 MailId = 1; }
 
 message DelMailRq {
   int64 OwnerId = 1; // 邮箱主人id
   int64 MailId = 2;  // 邮件id
 }
 
-message DelMailRs {
-  int32 ErrorCode = 1;
-  int64 MailId = 2;
-}
+message DelMailRs { int64 MailId = 1; }
