@@ -49,6 +49,22 @@ message Fragment {
 }
 
 ////////////////////////////////////////////////
+// Loot 掉落信息
+enum LootType {
+  LootItem = 0;      // 物品
+  LootToken = 1;     // 代币
+  LootHero = 2;      // 英雄
+  LootPlayerExp = 3; // 玩家经验
+  LootFragment = 4;  // 碎片
+}
+
+message LootData {
+  LootType Type = 1; // 掉落类型
+  int32 Misc = 2;    // 掉落参数
+  int32 Num = 3;     // 掉落数量
+}
+
+////////////////////////////////////////////////
 // Item
 message Item {
   int64 Id = 1;
@@ -115,4 +131,39 @@ message Stage {
   int32 ChallengeTimes = 2;     // 已挑战次数
   bool FirstReward = 3;         // 是否已领取首次通关奖励
   repeated bool Objectives = 4; // 是否已达成目标
+}
+
+////////////////////////////////////////////////
+// 邮件
+
+// 邮件状态
+enum MailStatus {
+  Unread = 0;            // 未读
+  Readed = 1;            // 已读
+  GainedAttachments = 2; // 已获取附件
+}
+
+// 邮件类型
+enum MailType {
+  System = 0; // 系统发送
+  Player = 1; // 玩家寄送
+}
+
+// 邮件上下文
+message MailContext {
+  int64 Id = 1;          // 邮件id
+  int64 SenderId = 2;    // 发件人id
+  MailStatus Status = 3; // 邮件状态
+  MailType Type = 4;     // 邮件类型
+  int32 Date = 5;        // 寄件日期
+  int32 ExpireDate = 6;  // 过期日期
+  string SenderName = 7; // 寄件人姓名
+  string Title = 8;      // 邮件标题
+  string Content = 9;    // 邮件内容
+}
+
+// 邮件信息
+message Mail {
+  MailContext Context = 1;           // 邮件上下文
+  repeated LootData Attachments = 2; // 附件
 }

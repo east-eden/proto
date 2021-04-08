@@ -5,6 +5,7 @@ proto:
 	protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./server/game/*.proto
 	protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./server/gate/*.proto
 	protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./server/combat/*.proto
+	protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./server/mail/*.proto
 	protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./server/pubsub/*.proto
 
 	# 客户端导出
@@ -17,6 +18,7 @@ linux_proto:
 	./bin/protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./server/game/*.proto
 	./bin/protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./server/gate/*.proto
 	./bin/protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./server/combat/*.proto
+	./bin/protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./server/mail/*.proto
 	./bin/protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./server/pubsub/*.proto
 
 	# 客户端导出
