@@ -3,12 +3,7 @@ package combat;
 
 option go_package = "bitbucket.org/funplus/server/proto/server/combat";
 
-// unit scene att
-message UnitInfo {
-  int32 HeroTypeId = 1;        // 英雄type_id
-  repeated int32 SkillIds = 2; // 技能id列表
-  repeated int32 AttValue = 3; // 英雄属性
-}
+import "global/combat.proto";
 
 ///////////////////////////////////////////////////
 // service
@@ -19,9 +14,9 @@ service CombatService {
 
 // 关卡战斗
 message StageCombatRq {
-  int32 StageId = 1;                    // 关卡id
-  int64 AttackId = 2;                   // 进攻方id -- 玩家id
-  repeated UnitInfo AttackUnitList = 3; // 进攻方英雄信息
+  int32 StageId = 1;                              // 关卡id
+  int64 AttackId = 2;                             // 进攻方id -- 玩家id
+  repeated global.EntityInfo AttackEntityList = 3; // 进攻方英雄信息
 }
 
 message StageCombatRs {
