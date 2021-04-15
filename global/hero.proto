@@ -8,6 +8,8 @@ import "global/define.proto";
 
 message C2S_DelHero { int64 Id = 1; }
 
+message S2C_DelHero { int64 Id = 1; }
+
 message C2S_QueryHeros {}
 
 // 升级

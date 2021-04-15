@@ -14,13 +14,12 @@ service CombatService {
 
 // 关卡战斗
 message StageCombatRq {
-  int32 StageId = 1;                              // 关卡id
-  int64 AttackId = 2;                             // 进攻方id -- 玩家id
+  int32 StageId = 1;                               // 关卡id
+  int64 AttackId = 2;                              // 进攻方id -- 玩家id
   repeated global.EntityInfo AttackEntityList = 3; // 进攻方英雄信息
 }
 
 message StageCombatRs {
-  int32 StageId = 1;
-  int64 AttackId = 2;
-  bool Result = 3; // true == win
+  bool Win = 1;                // 战斗结果
+  repeated bool Objective = 2; // 关卡条件达成
 }

@@ -33,6 +33,15 @@ message S2C_VipUpdate {
   int32 VipLevel = 2;
 }
 
+////////////////////////////////////////////////
+// stage
+message C2S_StageChallenge { int32 StageId = 1; }
+
+message S2C_StageChallenge {
+  int32 StageId = 1;
+  bool win = 2;
+}
+
 // 扫荡关卡
 message C2S_StageSweep {
   int32 StageId = 1;
@@ -45,6 +54,8 @@ message S2C_ChapterUpdate { Chapter Chapter = 1; }
 // 关卡信息更新
 message S2C_StageUpdate { Stage Stage = 1; }
 
+////////////////////////////////////////////////
+// strengthen
 // 取回体力
 message C2S_WithdrawStrengthen { int32 Value = 1; }
 

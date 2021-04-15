@@ -4,17 +4,5 @@ package global;
 option go_package = "bitbucket.org/funplus/server/proto/global";
 option csharp_namespace = "global";
 
-
 ////////////////////////////////////////////////
 // scene
-message C2S_StartStageCombat { //IRequest
-	int32 RpcId = 90;
-}
-
-message S2C_StartStageCombat { //IResponse
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
-    bool Result = 1;
-}
-
