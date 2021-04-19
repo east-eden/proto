@@ -1,0 +1,12 @@
+syntax = "proto3";
+package global;
+
+option go_package = "bitbucket.org/funplus/server/proto/global";
+option csharp_namespace = "global";
+
+// 战斗单位信息
+message EntityInfo {
+  int32 HeroTypeId = 1;             // 英雄type_id
+  repeated int32 CrystalSkills = 2; // 残响技能
+  repeated int32 AttValue = 3;      // 英雄属性
+}

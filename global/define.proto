@@ -32,13 +32,11 @@ message Hero {
   int32 TypeId = 2;
   int32 Exp = 3;
   int32 Level = 4;
-  int32 PromoteLevel = 5;   // 突破等级
-  int32 Star = 6;           // 星级
-  int32 NormalSpellId = 7;  // 普攻技能id
-  int32 SpecialSpellId = 8; // 大招技能id
-  int32 RageSpellId = 9;    // 怒气技能id
-  int32 Friendship = 10;    // 友好度
-  int32 FashionId = 11;     // 时装id
+  int32 PromoteLevel = 5;           // 突破等级
+  int32 Star = 6;                   // 星级
+  int32 Friendship = 7;             // 友好度
+  int32 FashionId = 8;              // 时装id
+  repeated int32 CrystalSkills = 9; // 残响技能
 }
 
 ////////////////////////////////////////////////
