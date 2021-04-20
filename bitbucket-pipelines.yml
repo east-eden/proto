@@ -15,16 +15,10 @@ pipelines:
         script:
           - pwd
           - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/proto.git
-          # - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/server.git
-          # - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/ee_client.git
+          - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/server.git
+          - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/ee_client.git
           - ls -al
           - cd proto
-
-          - apt-get update
-          - apt-get -y install cmake
-          - cd Protoc_3.4.0_src/cmake
-          - make
-
           - COMMIT_SHORT_HASH=`git rev-parse --short HEAD`
           - COMMIT_MESSAGE=`git log --format=%B -n 1`
           - cp ./bin/protoc /bin/
