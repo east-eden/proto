@@ -21,10 +21,8 @@ pipelines:
           - cd proto
           - COMMIT_SHORT_HASH=`git rev-parse --short HEAD`
           - COMMIT_MESSAGE=`git log --format=%B -n 1`
-          - cp ./bin/protoc /bin/
           - go get google.golang.org/protobuf/cmd/protoc-gen-go
           - go get github.com/micro/protoc-gen-micro/v2
-          - protoc --version
           - protoc-gen-go --version
           - make linux_proto
 
