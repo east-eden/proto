@@ -20,6 +20,8 @@ pipelines:
           - ls -al
           - cd proto
 
+          - apt-get update
+          - apt-get -y install cmake
           - cd Protoc_3.4.0_src/cmake
           - make
 
