@@ -13,6 +13,7 @@ pipelines:
         name: 'generate server go code'
         image: golang:1.15
         script:
+          - ls
           - cd Protoc_3.4.0_src/cmake
           - make
           - git status
