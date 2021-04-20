@@ -25,12 +25,6 @@ pipelines:
           - go get google.golang.org/protobuf/cmd/protoc-gen-go
           - go get github.com/micro/protoc-gen-micro/v2
           - protoc-gen-go --version
-
-          - ls -al
-          - chmod -R 777 ./bin/protoc_client
-          - ./bin/protoc_client --version
-          - ./bin/protoc_client -I=./ --csharp_out=:../ee_client/proto --csharp_opt=base_namespace=global ./global/*.proto
-
           - make linux_proto
 
           - cd ../server
