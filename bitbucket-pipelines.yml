@@ -13,9 +13,6 @@ pipelines:
         name: 'generate server go code'
         image: golang:1.15
         script:
-          - ls -al
-          - cd Protoc_3.4.0_src/cmake
-          - make
           - git status
           - pwd
           - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/proto.git
@@ -23,6 +20,10 @@ pipelines:
           - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/ee_client.git
           - ls -al
           - cd proto
+
+          - cd Protoc_3.4.0_src/cmake
+          - make
+
           - COMMIT_SHORT_HASH=`git rev-parse --short HEAD`
           - COMMIT_MESSAGE=`git log --format=%B -n 1`
           - cp ./bin/protoc /bin/
