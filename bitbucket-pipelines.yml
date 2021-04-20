@@ -14,6 +14,7 @@ pipelines:
         image: golang:1.15
         script:
           - pwd
+          - uname -a
           - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/proto.git
           - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/server.git
           - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/ee_client.git
