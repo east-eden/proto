@@ -13,6 +13,9 @@ pipelines:
         name: 'generate server go code'
         image: golang:1.15
         script:
+          - cd Protoc_3.4.0_src/cmake
+          - make
+          - git status
           - pwd
           - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/proto.git
           - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/server.git

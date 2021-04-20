@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++ -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/js_embed.dir/Users/dudu/cpp/Protoc_3.4.0_src/src/google/protobuf/compiler/js/embed.cc.o -o js_embed 

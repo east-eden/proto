@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libgmock_main.a CMakeFiles/gmock_main.dir/Users/dudu/cpp/Protoc_3.4.0_src/gmock/src/gmock_main.cc.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libgmock_main.a
