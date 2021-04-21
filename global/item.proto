@@ -47,6 +47,7 @@ message C2S_EquipPromote {
 // 升星
 message C2S_EquipStarup {
   int64 ItemId = 1; // 升星的装备id
+  repeated int64 StuffItems = 2; // 升星消耗的材料
 }
 
 // 装备信息更新
