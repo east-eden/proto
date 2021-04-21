@@ -37,6 +37,7 @@ message Hero {
   int32 Friendship = 7;             // 友好度
   int32 FashionId = 8;              // 时装id
   repeated int32 CrystalSkills = 9; // 残响技能
+  repeated int32 TalentList = 10;   // 天赋id
 }
 
 ////////////////////////////////////////////////
@@ -76,8 +77,9 @@ message EquipData {
   int32 Exp = 1;      // 经验
   int32 Level = 2;    // 等级
   int32 Promote = 3;  // 突破等级
-  bool Lock = 4;      // 锁定
-  int64 EquipObj = 5; // 装备者id
+  int32 Star = 4;     // 星级
+  bool Lock = 5;      // 锁定
+  int64 EquipObj = 6; // 装备者id
 }
 
 message Equip {
