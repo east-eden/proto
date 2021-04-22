@@ -21,6 +21,7 @@ message S2C_PlayerInitInfo {
   repeated Fragment Frags = 6;   // 碎片数据
   repeated Chapter Chapters = 7; // 章节信息
   repeated Stage Stages = 8;     // 关卡信息
+  repeated uint64 GuideInfo = 9; // 引导信息
 }
 
 message S2C_ExpUpdate {
@@ -61,6 +62,10 @@ message C2S_WithdrawStrengthen { int32 Value = 1; }
 
 // 购买体力
 message C2S_BuyStrengthen {}
+
+////////////////////////////////////////////////
+// 引导
+message C2S_GuidePass { int32 index = 1; }
 
 // gm 命令:
 // gm player level 10
