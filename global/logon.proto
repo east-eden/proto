@@ -25,7 +25,7 @@ message S2C_AccountLogon
 message C2S_HeartBeat {
 }
 
-message S2C_HeartBeat {
+message S2C_ServerTime {
     uint32  timestamp = 1;
 }
 
