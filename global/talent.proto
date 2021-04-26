@@ -1,0 +1,19 @@
+syntax = "proto3";
+package global;
+
+option go_package = "bitbucket.org/funplus/server/proto/global";
+option csharp_namespace = "global";
+
+import "global/define.proto";
+
+////////////////////////////////////////////////
+// Talent
+
+// 激活天赋、升级天赋
+message C2S_ChooseTalent {
+    int32 TalentId = 1;
+}
+
+message S2C_TalentUpdate {
+    global.Talent Talent = 1;  // 天赋
+}

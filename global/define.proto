@@ -26,6 +26,13 @@ message AccountInfo {
 }
 
 ////////////////////////////////////////////////
+// talent
+message Talent {
+  int32 TalentId = 1;    // 天赋id
+  int32 TalentLevel = 2; // 天赋等级
+}
+
+////////////////////////////////////////////////
 // Hero
 message Hero {
   int64 Id = 1;
@@ -37,7 +44,7 @@ message Hero {
   int32 Friendship = 7;             // 友好度
   int32 FashionId = 8;              // 时装id
   repeated int32 CrystalSkills = 9; // 残响技能
-  repeated int32 TalentList = 10;   // 天赋id
+  repeated Talent TalentList = 10;  // 天赋id
 }
 
 ////////////////////////////////////////////////
