@@ -1,8 +1,10 @@
 @echo off
-set outDir=%~1
-for %%i in (global/*.proto) do (
-   #echo gen %%~nxi...
-   protoc.exe --csharp_out=%outDir%  global/%%~nxi)
-
+set curDir=%~dp0
+set globalDir=%curDir%global\
+for /r global\ %%i in (*.proto) do (
+   #echo gen %%~nxi
+   protoc.exe --proto_path="global" --csharp_wxb_out=output  global\common\%%~nxi
+)
+   
 echo finish... 
 #pause
