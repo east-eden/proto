@@ -1,0 +1,19 @@
+syntax = "proto3";
+package common;
+
+option go_package = "bitbucket.org/funplus/server/proto/global/common";
+option csharp_namespace = "common";
+
+////////////////////////////////////////////////
+// Token
+message C2S_QueryTokens {
+}
+
+message S2C_TokenList {
+    repeated int32 Tokens = 1;  // 代币值
+}
+
+message S2C_TokenUpdate {
+    int32 Type = 1;
+    int32 Value = 2;
+}

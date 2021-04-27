@@ -1,0 +1,25 @@
+syntax = "proto3";
+package common;
+
+option go_package = "bitbucket.org/funplus/server/proto/global/common";
+option csharp_namespace = "common";
+
+import "global/common/define.proto";
+
+message C2S_QueryFragments { 
+
+}
+
+message S2C_FragmentsList { 
+    repeated Fragment frags = 1;
+}
+
+// 碎片更新
+message S2C_FragmentsUpdate {
+    repeated Fragment frags = 1;
+}
+
+// 碎片合成
+message C2S_FragmentsCompose {
+    int32 FragId = 1;
+}

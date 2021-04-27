@@ -2,9 +2,8 @@ syntax = "proto3";
 package game;
 
 option go_package = "bitbucket.org/funplus/server/proto/server/game";
-option csharp_namespace = "game";
 
-import "global/define.proto";
+import "global/common/define.proto";
 
 ///////////////////////////////////////////////////
 // service
@@ -22,7 +21,7 @@ message GetRemotePlayerInfoRq {
 }
 
 message GetRemotePlayerInfoRs {
-    global.PlayerInfo info = 1;
+    common.PlayerInfo info = 1;
 }
 
 message UpdatePlayerExpRequest {
