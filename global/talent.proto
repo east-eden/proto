@@ -2,9 +2,8 @@ syntax = "proto3";
 package global;
 
 option go_package = "bitbucket.org/funplus/server/proto/global";
-option csharp_namespace = "global";
+option csharp_namespace = "proto";
 
-import "global/define.proto";
 
 ////////////////////////////////////////////////
 // Talent

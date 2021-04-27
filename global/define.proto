@@ -2,7 +2,7 @@ syntax = "proto3";
 package global;
 
 option go_package = "bitbucket.org/funplus/server/proto/global";
-option csharp_namespace = "global";
+option csharp_namespace = "proto";
 
 ////////////////////////////////////////////////
 // 客户端发送此消息后必须收到服务器返回的ServerResponseMessage消息后才能接触屏幕锁定
