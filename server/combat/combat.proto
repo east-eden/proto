@@ -3,7 +3,7 @@ package combat;
 
 option go_package = "bitbucket.org/funplus/server/proto/server/combat";
 
-import "global/combat.proto";
+import "global/common/combat.proto";
 
 ///////////////////////////////////////////////////
 // service
@@ -16,7 +16,7 @@ service CombatService {
 message StageCombatRq {
   int32 StageId = 1;                               // 关卡id
   int64 AttackId = 2;                              // 进攻方id -- 玩家id
-  repeated global.EntityInfo AttackEntityList = 3; // 进攻方英雄信息
+  repeated common.EntityInfo AttackEntityList = 3; // 进攻方英雄信息
 }
 
 message StageCombatRs {

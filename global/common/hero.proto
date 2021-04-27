@@ -1,0 +1,44 @@
+syntax = "proto3";
+package common;
+
+option go_package = "bitbucket.org/funplus/server/proto/global/common";
+option csharp_namespace = "common";
+
+import "global/common/define.proto";
+
+message C2S_DelHero { int64 Id = 1; }
+
+message S2C_DelHero { int64 Id = 1; }
+
+message C2S_QueryHeros {}
+
+// 升级
+message C2S_HeroLevelup {
+  int64 HeroId = 1;              // 英雄id
+  repeated int64 StuffItems = 2; // 经验物品
+}
+
+// 突破
+message C2S_HeroPromote { int64 HeroId = 1; }
+
+// 升星
+message C2S_HeroStarup { int64 HeroId = 1; }
+
+// 选择天赋
+message C2S_HeroTalentChoose {
+  int64 HeroId = 1;   // 英雄id
+  int32 TalentId = 2; // 天赋id
+}
+
+message S2C_HeroList { repeated common.Hero heros = 1; }
+
+message S2C_HeroInfo { common.Hero info = 1; }
+
+////////////////////////////////////////////////
+// Att
+message C2S_QueryHeroAtt { int64 HeroId = 1; }
+
+message S2C_HeroAttUpdate {
+  int64 HeroId = 1;
+  repeated int32 AttValue = 2;
+}
