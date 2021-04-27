@@ -22,4 +22,4 @@ linux_proto:
 	./bin/protoc_server -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./server/pubsub/*.proto
 
 	# 客户端导出
-	./bin/protoc_client -I=./ --csharp_out=:../ee_client/proto --csharp_opt=base_namespace=global ./global/*.proto
+	./bin/protoc_client -I=./ --csharp_out=:../ee_client/proto --csharp_opt=base_namespace=proto ./global/*.proto
