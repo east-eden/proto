@@ -1,8 +1,8 @@
 syntax = "proto3";
-package common;
+package proto;
 
-option go_package = "bitbucket.org/funplus/server/proto/global/common";
-option csharp_namespace = "common";
+option go_package = "bitbucket.org/funplus/server/proto/global";
+option csharp_namespace = "proto";
 
 ////////////////////////////////////////////////
 // 客户端发送此消息后必须收到服务器返回的ServerResponseMessage消息后才能接触屏幕锁定

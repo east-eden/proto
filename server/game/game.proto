@@ -3,7 +3,7 @@ package game;
 
 option go_package = "bitbucket.org/funplus/server/proto/server/game";
 
-import "global/common/define.proto";
+import "global/define.proto";
 
 ///////////////////////////////////////////////////
 // service
@@ -21,7 +21,7 @@ message GetRemotePlayerInfoRq {
 }
 
 message GetRemotePlayerInfoRs {
-    common.PlayerInfo info = 1;
+    proto.PlayerInfo info = 1;
 }
 
 message UpdatePlayerExpRequest {

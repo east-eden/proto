@@ -3,7 +3,7 @@ package mail;
 
 option go_package = "bitbucket.org/funplus/server/proto/server/mail";
 
-import "global/common/define.proto";
+import "global/define.proto";
 
 ///////////////////////////////////////////////////
 // service
@@ -19,11 +19,11 @@ service mailService {
 message CreateMailRq {
   int64 ReceiverId = 1;                     // 收件人id
   int64 SenderId = 2;                       // 发件人id
-  common.MailType Type = 3;                 // 邮件类型
+  proto.MailType Type = 3;                 // 邮件类型
   string SenderName = 4;                    // 发件人姓名
   string Title = 5;                         // 邮件标题
   string Content = 6;                       // 邮件内容
-  repeated common.LootData Attachments = 7; // 邮件附件
+  repeated proto.LootData Attachments = 7; // 邮件附件
 }
 
 message CreateMailRs {
@@ -34,7 +34,7 @@ message QueryPlayerMailsRq {
   int64 OwnerId = 1; // 邮箱主人id
 }
 
-message QueryPlayerMailsRs { repeated common.Mail Mails = 1; }
+message QueryPlayerMailsRs { repeated proto.Mail Mails = 1; }
 
 message ReadMailRq {
   int64 OwnerId = 1; // 邮箱主人id
@@ -43,7 +43,7 @@ message ReadMailRq {
 
 message ReadMailRs {
   int64 MailId = 1;             // 邮件id
-  common.MailStatus Status = 2; // 邮件状态
+  proto.MailStatus Status = 2; // 邮件状态
 }
 
 message GainAttachmentsRq {
