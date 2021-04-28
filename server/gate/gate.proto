@@ -3,7 +3,7 @@ package gate;
 
 option go_package = "bitbucket.org/funplus/server/proto/server/gate";
 
-import "global/common/define.proto";
+import "global/define.proto";
 
 message GateStatus {
   int32 gate_id = 1;
@@ -33,7 +33,7 @@ message GetGateStatusReply { GateStatus status = 1; }
 
 message SyncPlayerInfoRequest {
   int64 UserId = 1;
-  common.PlayerInfo info = 2;
+  proto.PlayerInfo info = 2;
 }
 
 message SyncPlayerInfoReply { UserInfo info = 1; }
