@@ -1,10 +1,10 @@
 syntax = "proto3";
-package common;
+package proto;
 
-option go_package = "bitbucket.org/funplus/server/proto/global/common";
-option csharp_namespace = "common";
+option go_package = "bitbucket.org/funplus/server/proto/global";
+option csharp_namespace = "proto";
 
-import "global/common/define.proto";
+import "global/define.proto";
 
 message C2S_DelItem { int64 Id = 1; }
 
@@ -12,11 +12,11 @@ message C2S_UseItem { int64 ItemId = 1; }
 
 message C2S_QueryItems {}
 
-message S2C_ItemList { repeated common.Item items = 1; }
+message S2C_ItemList { repeated proto.Item items = 1; }
 
-message S2C_ItemAdd { common.Item item = 1; }
+message S2C_ItemAdd { proto.Item item = 1; }
 
-message S2C_ItemUpdate { common.Item item = 1; }
+message S2C_ItemUpdate { proto.Item item = 1; }
 
 message S2C_DelItem { int64 ItemId = 1; }
 
@@ -53,14 +53,14 @@ message C2S_EquipStarup {
 // 装备信息更新
 message S2C_EquipUpdate {
   int64 EquipId = 1;
-  common.EquipData EquipData = 2;
+  proto.EquipData EquipData = 2;
 }
 
 /////////////////////////////////////////////
 // 晶石
 message S2C_CrystalUpdate {
   int64 CrystalId = 1;                // 晶石id
-  common.CrystalData CrystalData = 2; // 晶石数据
+  proto.CrystalData CrystalData = 2; // 晶石数据
 }
 
 message C2S_PutonCrystal {
