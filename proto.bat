@@ -1,8 +1,9 @@
 @echo off
 set outDir=%~1
-set input=%~2
-::echo gen %input%
-echo.|protoc.exe --proto_path="global" --csharp_wxb_out=%outDir%  global/%input%
-::echo finish... 
 
+for %%i in (global/*.proto) do (
+    echo gen %%i
+    echo.|protoc.exe --proto_path="global" --csharp_wxb_out=%outDir%  global/%%i
+)
+::echo finish... 
 ::pause
