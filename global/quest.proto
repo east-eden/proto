@@ -1,0 +1,12 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "bitbucket.org/funplus/server/proto/global";
+option csharp_namespace = "proto";
+
+////////////////////////////////////////////////
+// quest
+
+message C2S_QuestReward {
+  int32 Id = 1; // 任务id
+}
