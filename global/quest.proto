@@ -7,6 +7,9 @@ option csharp_namespace = "proto";
 ////////////////////////////////////////////////
 // quest
 
-message C2S_QuestReward {
+// 领取玩家任务奖励
+message C2S_PlayerQuestReward {
   int32 Id = 1; // 任务id
 }
+
+// todo 领取收集品任务奖励
