@@ -174,3 +174,20 @@ message Mail {
   MailContext Context = 1;           // 邮件上下文
   repeated LootData Attachments = 2; // 附件
 }
+
+////////////////////////////////////////////////
+// 任务
+
+// 任务目标
+message QuestObj {
+  int32 Type = 1;     // 任务目标类型
+  int32 Count = 2;    // 任务目标计数
+  bool Completed = 3; // 任务目标是否达成
+}
+
+// 任务
+message Quest {
+  int32 Id = 1;    // 任务id
+  int32 State = 2; // 任务状态 0-开启，1-完成，2-已领取任务奖励
+  repeated QuestObj Objs = 3; // 任务目标
+}

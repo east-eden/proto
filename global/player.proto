@@ -22,6 +22,7 @@ message S2C_PlayerInitInfo {
   repeated Chapter Chapters = 7; // 章节信息
   repeated Stage Stages = 8;     // 关卡信息
   repeated uint64 GuideInfo = 9; // 引导信息
+  repeated Quest Quests = 10;    // 任务信息
 }
 
 message S2C_ExpUpdate {

@@ -1,0 +1,22 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "bitbucket.org/funplus/server/proto/global";
+option csharp_namespace = "proto";
+
+import "define.proto";
+
+////////////////////////////////////////////////
+// quest
+
+// 领取玩家任务奖励
+message C2S_PlayerQuestReward {
+  int32 Id = 1; // 任务id
+}
+
+// 任务更新
+message S2C_QuestUpdate {
+  proto.Quest Quest = 1;
+}
+
+// todo 领取收集品任务奖励
