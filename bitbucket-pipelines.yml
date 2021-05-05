@@ -14,17 +14,16 @@ pipelines:
         image: golang:1.15
         script:
           - pwd
-          - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@github.com/east-eden/proto.git
-          - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@github.com/east-eden/server.git
-          - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@github.com/east-eden/ee_client.git
+          - uname -a
+          - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/proto.git
+          - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/server.git
+          - git clone --depth=1 --branch $BITBUCKET_BRANCH https://$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD@bitbucket.org/funplus/ee_client.git
           - ls -al
           - cd proto
           - COMMIT_SHORT_HASH=`git rev-parse --short HEAD`
           - COMMIT_MESSAGE=`git log --format=%B -n 1`
-          - cp ./bin/protoc /bin/
           - go get google.golang.org/protobuf/cmd/protoc-gen-go
           - go get github.com/micro/protoc-gen-micro/v2
-          - protoc --version
           - protoc-gen-go --version
           - make linux_proto
 

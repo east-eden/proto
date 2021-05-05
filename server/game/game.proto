@@ -1,8 +1,7 @@
 syntax = "proto3";
 package game;
 
-option go_package = "github.com/east-eden/server/proto/server/game";
-option csharp_namespace = "game";
+option go_package = "bitbucket.org/funplus/server/proto/server/game";
 
 import "global/define.proto";
 
@@ -22,7 +21,7 @@ message GetRemotePlayerInfoRq {
 }
 
 message GetRemotePlayerInfoRs {
-    global.PlayerInfo info = 1;
+    proto.PlayerInfo info = 1;
 }
 
 message UpdatePlayerExpRequest {

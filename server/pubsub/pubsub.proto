@@ -8,15 +8,16 @@ import "global/define.proto";
 /////////////////////////////////////////////////
 // pub/sub
 /////////////////////////////////////////////////
-message PubStartGate {
-    global.AccountInfo info = 1;
-}
+message PubStartGate { proto.AccountInfo info = 1; }
 
 message PubGateResult {
-    global.AccountInfo info = 1;
-    bool win = 2;
+  proto.AccountInfo info = 1;
+  bool win = 2;
 }
 
-message PubSyncPlayerInfo {
-    global.PlayerInfo info = 1;
+message PubSyncPlayerInfo { proto.PlayerInfo info = 1; }
+
+message MultiPublishTest {
+  int32 id = 1;
+  string name = 2;
 }

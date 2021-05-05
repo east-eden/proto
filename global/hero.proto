@@ -1,29 +1,38 @@
 syntax = "proto3";
-package global;
+package proto;
 
-option go_package = "github.com/east-eden/server/proto/global";
-option csharp_namespace = "global";
+option go_package = "bitbucket.org/funplus/server/proto/global";
+option csharp_namespace = "proto";
 
-import "global/define.proto";
+import "define.proto";
 
 message C2S_DelHero { int64 Id = 1; }
+
+message S2C_DelHero { int64 Id = 1; }
 
 message C2S_QueryHeros {}
 
 // 升级
 message C2S_HeroLevelup {
-  int64 HeroId = 1;        // 英雄id
+  int64 HeroId = 1;              // 英雄id
   repeated int64 StuffItems = 2; // 经验物品
 }
 
 // 突破
 message C2S_HeroPromote { int64 HeroId = 1; }
 
-message S2C_HeroUpdate { global.Hero info = 1; }
+// 升星
+message C2S_HeroStarup { int64 HeroId = 1; }
 
-message S2C_HeroList { repeated global.Hero heros = 1; }
+// 选择天赋
+message C2S_HeroTalentChoose {
+  int64 HeroId = 1;   // 英雄id
+  int32 TalentId = 2; // 天赋id
+}
 
-message S2C_HeroInfo { global.Hero info = 1; }
+message S2C_HeroList { repeated proto.Hero heros = 1; }
+
+message S2C_HeroInfo { proto.Hero info = 1; }
 
 ////////////////////////////////////////////////
 // Att

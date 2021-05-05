@@ -1,10 +1,10 @@
 syntax = "proto3";
-package global;
+package proto;
 
-option go_package = "github.com/east-eden/server/proto/global";
-option csharp_namespace = "global";
+option go_package = "bitbucket.org/funplus/server/proto/global";
+option csharp_namespace = "proto";
 
-import "global/define.proto";
+import "define.proto";
 
 message C2S_QueryFragments { 
 

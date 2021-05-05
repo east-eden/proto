@@ -1,10 +1,10 @@
 syntax = "proto3";
-package global;
+package proto;
 
-option go_package = "github.com/east-eden/server/proto/global";
-option csharp_namespace = "global";
+option go_package = "bitbucket.org/funplus/server/proto/global";
+option csharp_namespace = "proto";
 
-import "global/define.proto";
+import "define.proto";
 
 // 创建角色
 message C2S_CreatePlayer { string name = 1; }
@@ -21,6 +21,8 @@ message S2C_PlayerInitInfo {
   repeated Fragment Frags = 6;   // 碎片数据
   repeated Chapter Chapters = 7; // 章节信息
   repeated Stage Stages = 8;     // 关卡信息
+  repeated uint64 GuideInfo = 9; // 引导信息
+  repeated Quest Quests = 10;    // 任务信息
 }
 
 message S2C_ExpUpdate {
@@ -31,6 +33,15 @@ message S2C_ExpUpdate {
 message S2C_VipUpdate {
   int32 VipExp = 1;
   int32 VipLevel = 2;
+}
+
+////////////////////////////////////////////////
+// stage
+message C2S_StageChallenge { int32 StageId = 1; }
+
+message S2C_StageChallenge {
+  int32 StageId = 1;
+  bool win = 2;
 }
 
 // 扫荡关卡
@@ -45,11 +56,17 @@ message S2C_ChapterUpdate { Chapter Chapter = 1; }
 // 关卡信息更新
 message S2C_StageUpdate { Stage Stage = 1; }
 
+////////////////////////////////////////////////
+// strengthen
 // 取回体力
 message C2S_WithdrawStrengthen { int32 Value = 1; }
 
 // 购买体力
 message C2S_BuyStrengthen {}
+
+////////////////////////////////////////////////
+// 引导
+message C2S_GuidePass { int32 index = 1; }
 
 // gm 命令:
 // gm player level 10

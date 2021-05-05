@@ -33,7 +33,7 @@ message GetGateStatusReply { GateStatus status = 1; }
 
 message SyncPlayerInfoRequest {
   int64 UserId = 1;
-  global.PlayerInfo info = 2;
+  proto.PlayerInfo info = 2;
 }
 
 message SyncPlayerInfoReply { UserInfo info = 1; }
