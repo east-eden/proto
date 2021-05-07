@@ -18,6 +18,12 @@ message S2C_WaitResponseMessage {
 }
 
 ////////////////////////////////////////////////
+// server console message
+message S2C_ServerConsole {
+  string msg = 1;
+}
+
+////////////////////////////////////////////////
 // Account
 message AccountInfo {
   int64 id = 1;
