@@ -10,8 +10,6 @@ message C2S_DelHero { int64 Id = 1; }
 
 message S2C_DelHero { int64 Id = 1; }
 
-message C2S_QueryHeros {}
-
 // 升级
 message C2S_HeroLevelup {
   int64 HeroId = 1;              // 英雄id
@@ -29,8 +27,6 @@ message C2S_HeroTalentChoose {
   int64 HeroId = 1;   // 英雄id
   int32 TalentId = 2; // 天赋id
 }
-
-message S2C_HeroList { repeated proto.Hero heros = 1; }
 
 message S2C_HeroInfo { proto.Hero info = 1; }
 

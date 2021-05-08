@@ -126,6 +126,13 @@ message PlayerInfo {
 }
 
 ////////////////////////////////////////////////
+// collection
+message Collection {
+  int32 TypeId = 1;
+  int32 Star = 2;
+}
+
+////////////////////////////////////////////////
 // 章节 & 关卡信息
 message Chapter {
   int32 Id = 1;              // 章节id

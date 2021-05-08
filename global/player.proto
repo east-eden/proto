@@ -18,12 +18,13 @@ message S2C_PlayerInitInfo {
   repeated Item Items = 3;               // 物品数据
   repeated Equip Equips = 4;             // 装备数据
   repeated Crystal Crystals = 5;         // 晶石数据
-  repeated Fragment HeroFrags = 6;       // 英雄碎片数据
-  repeated Fragment CollectionFrags = 7; // 收集品碎片数据
-  repeated Chapter Chapters = 8;         // 章节信息
-  repeated Stage Stages = 9;             // 关卡信息
-  repeated uint64 GuideInfo = 10;        // 引导信息
-  repeated Quest Quests = 11;            // 任务信息
+  repeated Collection Collections = 6;   // 收集品数据
+  repeated Fragment HeroFrags = 7;       // 英雄碎片数据
+  repeated Fragment CollectionFrags = 8; // 收集品碎片数据
+  repeated Chapter Chapters = 9;         // 章节信息
+  repeated Stage Stages = 10;            // 关卡信息
+  repeated uint64 GuideInfo = 11;        // 引导信息
+  repeated Quest Quests = 12;            // 任务信息
 }
 
 message S2C_ExpUpdate {
