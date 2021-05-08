@@ -6,10 +6,6 @@ option csharp_namespace = "proto";
 
 import "define.proto";
 
-message C2S_QueryHeroFragments {}
-
-message C2S_QueryCollectionFragments {}
-
 message S2C_HeroFragmentsList { repeated Fragment frags = 1; }
 
 message S2C_CollectionFragmentsList { repeated Fragment frags = 1; }
