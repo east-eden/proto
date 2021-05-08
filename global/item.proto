@@ -10,10 +10,6 @@ message C2S_DelItem { int64 Id = 1; }
 
 message C2S_UseItem { int64 ItemId = 1; }
 
-message C2S_QueryItems {}
-
-message S2C_ItemList { repeated proto.Item items = 1; }
-
 message S2C_ItemAdd { proto.Item item = 1; }
 
 message S2C_ItemUpdate { proto.Item item = 1; }
@@ -22,14 +18,14 @@ message S2C_DelItem { int64 ItemId = 1; }
 
 /////////////////////////////////////////////
 // 装备
-message C2S_PutonEquip { 
-    int64 HeroId = 1;
-    int64 EquipId = 2;
+message C2S_PutonEquip {
+  int64 HeroId = 1;
+  int64 EquipId = 2;
 }
 
-message C2S_TakeoffEquip { 
-    int64 HeroId = 1;
-    int32 Pos = 2;      // 0-3
+message C2S_TakeoffEquip {
+  int64 HeroId = 1;
+  int32 Pos = 2; // 0-3
 }
 
 // 升级
@@ -46,7 +42,7 @@ message C2S_EquipPromote {
 
 // 升星
 message C2S_EquipStarup {
-  int64 ItemId = 1; // 升星的装备id
+  int64 ItemId = 1;              // 升星的装备id
   repeated int64 StuffItems = 2; // 升星消耗的材料
 }
 
@@ -59,7 +55,7 @@ message S2C_EquipUpdate {
 /////////////////////////////////////////////
 // 晶石
 message S2C_CrystalUpdate {
-  int64 CrystalId = 1;                // 晶石id
+  int64 CrystalId = 1;               // 晶石id
   proto.CrystalData CrystalData = 2; // 晶石数据
 }
 

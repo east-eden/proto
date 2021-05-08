@@ -1,0 +1,15 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "bitbucket.org/funplus/server/proto/global";
+option csharp_namespace = "proto";
+
+import "define.proto";
+
+message C2S_CollectionActive { int32 TypeId = 1; }
+
+message C2S_CollectionStarup {
+  int32 TypeId = 1; // 收集品typeid
+}
+
+message S2C_CollectionInfo { proto.Collection info = 1; }

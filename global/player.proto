@@ -13,16 +13,18 @@ message S2C_CreatePlayer { PlayerInfo info = 1; }
 
 // 玩家登陆初始信息
 message S2C_PlayerInitInfo {
-  PlayerInfo Info = 1;           // 玩家基本信息
-  repeated Hero Heros = 2;       // 英雄数据
-  repeated Item Items = 3;       // 物品数据
-  repeated Equip Equips = 4;     // 装备数据
-  repeated Crystal Crystals = 5; // 晶石数据
-  repeated Fragment Frags = 6;   // 碎片数据
-  repeated Chapter Chapters = 7; // 章节信息
-  repeated Stage Stages = 8;     // 关卡信息
-  repeated uint64 GuideInfo = 9; // 引导信息
-  repeated Quest Quests = 10;    // 任务信息
+  PlayerInfo Info = 1;                   // 玩家基本信息
+  repeated Hero Heros = 2;               // 英雄数据
+  repeated Item Items = 3;               // 物品数据
+  repeated Equip Equips = 4;             // 装备数据
+  repeated Crystal Crystals = 5;         // 晶石数据
+  repeated Collection Collections = 6;   // 收集品数据
+  repeated Fragment HeroFrags = 7;       // 英雄碎片数据
+  repeated Fragment CollectionFrags = 8; // 收集品碎片数据
+  repeated Chapter Chapters = 9;         // 章节信息
+  repeated Stage Stages = 10;            // 关卡信息
+  repeated uint64 GuideInfo = 11;        // 引导信息
+  repeated Quest Quests = 12;            // 任务信息
 }
 
 message S2C_ExpUpdate {
