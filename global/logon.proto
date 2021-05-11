@@ -7,7 +7,7 @@ option csharp_namespace = "proto";
 // 客户端账号登陆
 message C2S_AccountLogon 
 {
-	int64 UserId = 1;
+	string UserId = 1;
     int64 AccountId = 2;
     string AccountName = 3;
 }
