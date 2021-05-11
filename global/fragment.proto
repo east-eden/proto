@@ -6,20 +6,17 @@ option csharp_namespace = "proto";
 
 import "define.proto";
 
-message C2S_QueryFragments { 
+message S2C_HeroFragmentsList { repeated Fragment frags = 1; }
 
-}
-
-message S2C_FragmentsList { 
-    repeated Fragment frags = 1;
-}
+message S2C_CollectionFragmentsList { repeated Fragment frags = 1; }
 
 // 碎片更新
-message S2C_FragmentsUpdate {
-    repeated Fragment frags = 1;
-}
+message S2C_HeroFragmentsUpdate { repeated Fragment frags = 1; }
 
-// 碎片合成
-message C2S_FragmentsCompose {
-    int32 FragId = 1;
-}
+message S2C_CollectionFragmentsUpdate { repeated Fragment frags = 1; }
+
+// 英雄碎片合成
+message C2S_HeroFragmentsCompose { int32 FragId = 1; }
+
+// 收集品碎片合成
+message C2S_CollectionFragmentsCompose { int32 FragId = 1; }

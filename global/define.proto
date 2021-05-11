@@ -19,9 +19,7 @@ message S2C_WaitResponseMessage {
 
 ////////////////////////////////////////////////
 // server console message
-message S2C_ServerConsole {
-  string msg = 1;
-}
+message S2C_ServerConsole { string msg = 1; }
 
 ////////////////////////////////////////////////
 // Account
@@ -129,6 +127,14 @@ message PlayerInfo {
   string Name = 3;
   int32 Exp = 4;
   int32 Level = 5;
+}
+
+////////////////////////////////////////////////
+// collection
+message Collection {
+  int32 TypeId = 1;
+  bool Active = 2; // 是否已激活
+  int32 Star = 3;  // 星级
 }
 
 ////////////////////////////////////////////////

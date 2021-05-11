@@ -6,9 +6,6 @@ option csharp_namespace = "proto";
 
 ////////////////////////////////////////////////
 // Token
-message C2S_QueryTokens {
-}
-
 message S2C_TokenList {
     repeated int32 Tokens = 1;  // 代币值
 }
