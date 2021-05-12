@@ -135,6 +135,7 @@ message Collection {
   int32 TypeId = 1;
   bool Active = 2; // 是否已激活
   int32 Star = 3;  // 星级
+  int32 BoxId = 4; // 放置id
 }
 
 ////////////////////////////////////////////////

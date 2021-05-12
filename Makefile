@@ -1,7 +1,7 @@
 .PHONY: proto
 proto:
 	# 服务器导出
-	protoc -I=./global --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./global/*.proto
+	protoc -I=./global --go_out=:../server/proto --micro_out=:../server/proto/global --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./global/*.proto
 	protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./server/game/*.proto
 	protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./server/gate/*.proto
 	protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=bitbucket.org/funplus/server/proto --micro_opt=paths=source_relative ./server/combat/*.proto
