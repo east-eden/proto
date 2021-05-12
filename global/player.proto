@@ -38,6 +38,11 @@ message S2C_VipUpdate {
 }
 
 ////////////////////////////////////////////////
+// 布阵
+message C2S_SaveBattleArray { repeated int64 BattleHeroId = 1; }
+message S2C_SaveBattleArray { bool success = 1; }
+
+////////////////////////////////////////////////
 // stage
 message C2S_StageChallenge { int32 StageId = 1; }
 

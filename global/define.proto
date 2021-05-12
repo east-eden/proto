@@ -127,6 +127,8 @@ message PlayerInfo {
   string Name = 3;
   int32 Exp = 4;
   int32 Level = 5;
+  int32 BuyStrengthenTimes = 6; // 已购买体力次数
+  repeated int64 BattleArray = 7; // 战斗布阵英雄id
 }
 
 ////////////////////////////////////////////////
