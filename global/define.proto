@@ -134,8 +134,10 @@ message PlayerInfo {
 message Collection {
   int32 TypeId = 1;
   bool Active = 2; // 是否已激活
-  int32 Star = 3;  // 星级
-  int32 BoxId = 4; // 放置id
+  bool Wakeup = 3; // 是否已觉醒
+  int32 Star = 4;  // 星级
+  int32 BoxId = 5; // 放置id
+  int32 Score = 6; // 评分
 }
 
 ////////////////////////////////////////////////
