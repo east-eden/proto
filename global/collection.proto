@@ -12,4 +12,8 @@ message C2S_CollectionStarup {
   int32 TypeId = 1; // 收集品typeid
 }
 
+message C2S_CollectionWakeup {
+  int32 TypeId = 1;
+}
+
 message S2C_CollectionInfo { proto.Collection info = 1; }
