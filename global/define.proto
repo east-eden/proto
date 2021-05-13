@@ -153,7 +153,7 @@ message Chapter {
 message Stage {
   int32 Id = 1;                 // 关卡id
   int32 ChallengeTimes = 2;     // 已挑战次数
-  bool FirstReward = 3;         // 是否已领取首次通关奖励
+  //bool FirstReward = 3;         // 是否已领取首次通关奖励
   repeated bool Objectives = 4; // 是否已达成目标
 }
 
