@@ -25,6 +25,7 @@ message S2C_PlayerInitInfo {
   repeated Stage Stages = 10;            // 关卡信息
   repeated uint64 GuideInfo = 11;        // 引导信息
   repeated Quest Quests = 12;            // 任务信息
+  repeated Tower Towers = 13;            // 塔信息
 }
 
 message S2C_ExpUpdate {
@@ -74,6 +75,18 @@ message C2S_BuyStrengthen {}
 ////////////////////////////////////////////////
 // 引导
 message C2S_GuidePass { int32 index = 1; }
+
+////////////////////////////////////////////////
+// 爬塔
+message C2S_TowerChallengh {
+  int32 TowerType = 1;            // 塔类型
+  int32 TowerFloor = 2;           // 挑战层数
+  repeated int64 BattleArray = 3; // 挑战阵容
+}
+
+message S2C_TowerUpdate {
+  Tower Tower = 2;
+}
 
 // gm 命令:
 // gm player level 10

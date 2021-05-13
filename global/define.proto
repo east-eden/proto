@@ -127,7 +127,7 @@ message PlayerInfo {
   string Name = 3;
   int32 Exp = 4;
   int32 Level = 5;
-  int32 BuyStrengthenTimes = 6; // 已购买体力次数
+  int32 BuyStrengthenTimes = 6;   // 已购买体力次数
   repeated int64 BattleArray = 7; // 战斗布阵英雄id
 }
 
@@ -155,6 +155,14 @@ message Stage {
   int32 ChallengeTimes = 2;     // 已挑战次数
   bool FirstReward = 3;         // 是否已领取首次通关奖励
   repeated bool Objectives = 4; // 是否已达成目标
+}
+
+////////////////////////////////////////////////
+// 章节 & 关卡信息
+message Tower {
+  // 塔类型 0: 韵律之塔 1: 自然之塔 2: 文明之塔 3: 破灭之塔 4: 综合试炼
+  int32 Type = 1;
+  int32 Floor = 2; // 当前所在层
 }
 
 ////////////////////////////////////////////////
