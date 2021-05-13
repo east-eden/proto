@@ -78,7 +78,7 @@ message C2S_GuidePass { int32 index = 1; }
 
 ////////////////////////////////////////////////
 // 爬塔
-message C2S_TowerChallengh {
+message C2S_TowerChallenge {
   int32 TowerType = 1;            // 塔类型
   int32 TowerFloor = 2;           // 挑战层数
   repeated int64 BattleArray = 3; // 挑战阵容
