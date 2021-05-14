@@ -44,9 +44,7 @@ message S2C_SaveBattleArray { bool success = 1; }
 
 ////////////////////////////////////////////////
 // stage
-message C2S_StageChallenge { int32 StageId = 1; }
-
-message S2C_StageChallenge {
+message C2S_StageChallenge { 
   int32 StageId = 1;
   bool Win = 2;
   bool AchieveCondition = 3; // 成就条件是否达成
