@@ -48,7 +48,9 @@ message C2S_StageChallenge { int32 StageId = 1; }
 
 message S2C_StageChallenge {
   int32 StageId = 1;
-  bool win = 2;
+  bool Win = 2;
+  bool AchieveCondition = 3; // 成就条件是否达成
+  repeated bool StarCondition = 4; // 星级条件是否达成
 }
 
 // 扫荡关卡

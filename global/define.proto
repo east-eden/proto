@@ -127,7 +127,7 @@ message PlayerInfo {
   string Name = 3;
   int32 Exp = 4;
   int32 Level = 5;
-  int32 BuyStrengthenTimes = 6; // 已购买体力次数
+  int32 BuyStrengthenTimes = 6;   // 已购买体力次数
   repeated int64 BattleArray = 7; // 战斗布阵英雄id
 }
 
@@ -152,9 +152,10 @@ message Chapter {
 
 message Stage {
   int32 Id = 1;                 // 关卡id
-  int32 ChallengeTimes = 2;     // 已挑战次数
-  //bool FirstReward = 3;         // 是否已领取首次通关奖励
-  repeated bool Objectives = 4; // 是否已达成目标
+  bool Passed = 2;              // 是否已通关
+  int32 ChallengeTimes = 3;     // 已挑战次数
+  bool Achieve = 4;             // 成就是否已达成
+  repeated bool Objectives = 5; // 是否已达成星级目标
 }
 
 ////////////////////////////////////////////////
