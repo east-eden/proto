@@ -27,7 +27,7 @@ message CreateMailRq {
 }
 
 message CreateMailRs {
-  int64 MailId = 1; // 邮件id
+  proto.Mail NewMail = 1; // 新邮件数据
 }
 
 message QueryPlayerMailsRq {
