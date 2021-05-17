@@ -30,6 +30,13 @@ message AccountInfo {
 }
 
 ////////////////////////////////////////////////
+// token
+message Token {
+  int32 Type = 1; // 代币类型
+  int32 Value = 2; // 代币值
+}
+
+////////////////////////////////////////////////
 // talent
 message Talent {
   int32 TalentId = 1;    // 天赋id

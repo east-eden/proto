@@ -25,6 +25,7 @@ message S2C_PlayerInitInfo {
   repeated Stage Stages = 10;            // 关卡信息
   repeated uint64 GuideInfo = 11;        // 引导信息
   repeated Quest Quests = 12;            // 任务信息
+  repeated Token Tokens = 13;             // 代币信息
 }
 
 message S2C_ExpUpdate {
