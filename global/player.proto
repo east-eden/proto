@@ -58,6 +58,12 @@ message C2S_StageSweep {
   int32 Times = 2;
 }
 
+// 领取章节奖励
+message C2S_ChapterReward {
+  int32 ChapterId = 1;
+  int32 Index = 2;
+}
+
 // 章节信息更新
 message S2C_ChapterUpdate { Chapter Chapter = 1; }
 
