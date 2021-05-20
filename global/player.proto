@@ -23,9 +23,9 @@ message S2C_PlayerInitInfo {
   repeated Fragment CollectionFrags = 8; // 收集品碎片数据
   repeated Chapter Chapters = 9;         // 章节信息
   repeated Stage Stages = 10;            // 关卡信息
-  repeated uint64 GuideInfo = 11;        // 引导信息
+  bytes GuideInfo = 11;                  // 引导信息
   repeated Quest Quests = 12;            // 任务信息
-  repeated Token Tokens = 13;             // 代币信息
+  repeated Token Tokens = 13;            // 代币信息
   repeated Tower Towers = 14;            // 塔信息
 }
 
@@ -46,10 +46,10 @@ message S2C_SaveBattleArray { bool success = 1; }
 
 ////////////////////////////////////////////////
 // stage
-message C2S_StageChallenge { 
+message C2S_StageChallenge {
   int32 StageId = 1;
   bool Win = 2;
-  bool AchieveCondition = 3; // 成就条件是否达成
+  bool AchieveCondition = 3;       // 成就条件是否达成
   repeated bool StarCondition = 4; // 星级条件是否达成
 }
 
@@ -91,9 +91,7 @@ message C2S_TowerChallenge {
   repeated int64 BattleArray = 3; // 挑战阵容
 }
 
-message S2C_TowerUpdate {
-  Tower Tower = 2;
-}
+message S2C_TowerUpdate { Tower Tower = 2; }
 
 // gm 命令:
 // gm player level(exp、vip) 10
