@@ -16,6 +16,12 @@ message C2S_HeroLevelup {
   repeated int64 StuffItems = 2; // 经验物品
 }
 
+message S2C_HeroLevelup {
+  int64 HeroId = 1;
+  int32 CurLevel = 2;
+  int32 CurExp = 3;
+}
+
 // 突破
 message C2S_HeroPromote { int64 HeroId = 1; }
 
