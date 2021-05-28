@@ -64,8 +64,8 @@ enum TokenType {
 }
 
 message Token {
-  TokenType Type = 1;  // 代币类型
-  int32 Value = 2; // 代币值
+  TokenType Type = 1; // 代币类型
+  int32 Value = 2;    // 代币值
 }
 
 ////////////////////////////////////////////////
@@ -88,6 +88,7 @@ message Hero {
   int32 FashionId = 8;              // 时装id
   repeated int32 CrystalSkills = 9; // 残响技能
   repeated Talent TalentList = 10;  // 天赋id
+  repeated int32 AttValues = 11;    // 属性
 }
 
 ////////////////////////////////////////////////

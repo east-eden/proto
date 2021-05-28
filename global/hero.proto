@@ -5,6 +5,7 @@ option go_package = "bitbucket.org/funplus/server/proto/global";
 option csharp_namespace = "proto";
 
 import "define.proto";
+import "att.proto";
 
 message C2S_DelHero { int64 Id = 1; }
 
@@ -38,9 +39,12 @@ message S2C_HeroInfo { proto.Hero info = 1; }
 
 ////////////////////////////////////////////////
 // Att
-message C2S_QueryHeroAtt { int64 HeroId = 1; }
+message S2C_HeroAtts {
+  int64 HeroId = 1;
+  repeated int32 AttValue = 2; 
+}
 
 message S2C_HeroAttUpdate {
   int64 HeroId = 1;
-  repeated int32 AttValue = 2;
+  repeated proto.Att Atts = 2; // 更新的属性
 }
