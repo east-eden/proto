@@ -13,8 +13,9 @@ message S2C_DelHero { int64 Id = 1; }
 
 // 升级
 message C2S_HeroLevelup {
-  int64 HeroId = 1;              // 英雄id
-  repeated int64 StuffItems = 2; // 经验物品
+  int64 HeroId = 1;          // 英雄id
+  int32 StuffItemTypeId = 2; // 经验物品typeid
+  int32 UseNum = 3;          // 使用物品个数
 }
 
 message S2C_HeroLevelup {
@@ -41,7 +42,7 @@ message S2C_HeroInfo { proto.Hero info = 1; }
 // Att
 message S2C_HeroAtts {
   int64 HeroId = 1;
-  repeated int32 AttValue = 2; 
+  repeated int32 AttValue = 2;
 }
 
 message S2C_HeroAttUpdate {
