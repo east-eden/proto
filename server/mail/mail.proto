@@ -14,6 +14,8 @@ service mailService {
   rpc ReadMail(ReadMailRq) returns (ReadMailRs) {}
   rpc GainAttachments(GainAttachmentsRq) returns (GainAttachmentsRs) {}
   rpc DelMail(DelMailRq) returns (DelMailRs) {}
+
+  rpc KickMailBox(KickMailBoxRq) returns (KickMailBoxRs) {}
 }
 
 message CreateMailRq {
@@ -27,7 +29,7 @@ message CreateMailRq {
 }
 
 message CreateMailRs {
-  int64 MailId = 1; // 邮件id
+  proto.Mail NewMail = 1; // 新邮件数据
 }
 
 message QueryPlayerMailsRq {
@@ -59,3 +61,13 @@ message DelMailRq {
 }
 
 message DelMailRs { int64 MailId = 1; }
+
+message KickMailBoxRq {
+  int64 OwnerId = 1; // 邮箱主人id
+  int32 MailNodeId = 2; // 所在mail服务节点id
+}
+
+message KickMailBoxRs {
+  int64 OwnerId = 1;
+  string Error = 2;
+}

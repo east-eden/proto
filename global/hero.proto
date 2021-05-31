@@ -5,17 +5,23 @@ option go_package = "github.com/east-eden/server/proto/global";
 option csharp_namespace = "proto";
 
 import "define.proto";
+import "att.proto";
 
 message C2S_DelHero { int64 Id = 1; }
 
 message S2C_DelHero { int64 Id = 1; }
 
-message C2S_QueryHeros {}
-
 // 升级
 message C2S_HeroLevelup {
-  int64 HeroId = 1;              // 英雄id
-  repeated int64 StuffItems = 2; // 经验物品
+  int64 HeroId = 1;          // 英雄id
+  int32 StuffItemTypeId = 2; // 经验物品typeid
+  int32 UseNum = 3;          // 使用物品个数
+}
+
+message S2C_HeroLevelup {
+  int64 HeroId = 1;
+  int32 CurLevel = 2;
+  int32 CurExp = 3;
 }
 
 // 突破
@@ -30,15 +36,16 @@ message C2S_HeroTalentChoose {
   int32 TalentId = 2; // 天赋id
 }
 
-message S2C_HeroList { repeated proto.Hero heros = 1; }
-
 message S2C_HeroInfo { proto.Hero info = 1; }
 
 ////////////////////////////////////////////////
 // Att
-message C2S_QueryHeroAtt { int64 HeroId = 1; }
+message S2C_HeroAtts {
+  int64 HeroId = 1;
+  repeated int32 AttValue = 2;
+}
 
 message S2C_HeroAttUpdate {
   int64 HeroId = 1;
-  repeated int32 AttValue = 2;
+  repeated proto.Att Atts = 2; // 更新的属性
 }

@@ -41,5 +41,5 @@ message KickAccountOfflineRq {
 
 message KickAccountOfflineRs {
     int64 accountId = 1;
-    int32 errorCode = 2;
+    string Error = 2;
 }

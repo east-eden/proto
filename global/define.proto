@@ -18,11 +18,54 @@ message S2C_WaitResponseMessage {
 }
 
 ////////////////////////////////////////////////
+// server console message
+message S2C_ServerConsole { string msg = 1; }
+
+////////////////////////////////////////////////
 // Account
 message AccountInfo {
   int64 id = 1;
   string name = 2;
   int32 level = 3;
+}
+
+////////////////////////////////////////////////
+// token
+enum TokenType {
+  option allow_alias = true;
+  Token_Begin = 0;
+  Token_Gold = 0;                // 0 金币
+  Token_Diamond = 1;             // 1 钻石
+  Token_Music = 2;               // 2 音石
+  Token_Friendship = 3;          // 3 友情点
+  Token_Maze = 4;                // 4 迷宫代币
+  Token_Arena = 5;               // 5 竞技场代币
+  Token_Expedition = 6;          // 6 远征代币
+  Token_Home = 7;                // 7 家园代币
+  Token_ActivityQuest = 8;       // 8 活跃任务代币
+  Token_GuildContrubution = 9;   // 9 帮会贡献
+  Token_CrystalExp = 10;         // 10 晶石经验代币
+  Token_ExploreReputation1 = 11; // 11 探索声望代币1
+  Token_ExploreReputation2 = 12; // 12 探索声望代币2
+  Token_ExploreReputation3 = 13; // 13 探索声望代币3
+  Token_ExploreReputation4 = 14; // 14 探索声望代币4
+  Token_ExploreReputation5 = 15; // 15 探索声望代币5
+  Token_Strength = 16;           // 16 体力
+  Token_StrengthStore = 17;      // 17 体力存储
+
+  Token_CollectionBegin = 18;
+  Token_CollectionGreen = 18;  // 18 绿色收集品通用碎片
+  Token_CollectionBlue = 19;   // 19 蓝色收集品通用碎片
+  Token_CollectionPurple = 20; // 20 紫色收集品通用碎片
+  Token_CollectionYellow = 21; // 21 黄色收集品通用碎片
+  Token_CollectionEnd = 22;
+
+  Token_End = 22;
+}
+
+message Token {
+  TokenType Type = 1; // 代币类型
+  int32 Value = 2;    // 代币值
 }
 
 ////////////////////////////////////////////////
@@ -45,6 +88,7 @@ message Hero {
   int32 FashionId = 8;              // 时装id
   repeated int32 CrystalSkills = 9; // 残响技能
   repeated Talent TalentList = 10;  // 天赋id
+  repeated int32 AttValues = 11;    // 属性
 }
 
 ////////////////////////////////////////////////
@@ -123,6 +167,19 @@ message PlayerInfo {
   string Name = 3;
   int32 Exp = 4;
   int32 Level = 5;
+  int32 BuyStrengthenTimes = 6;   // 已购买体力次数
+  repeated int64 BattleArray = 7; // 战斗布阵英雄id
+}
+
+////////////////////////////////////////////////
+// collection
+message Collection {
+  int32 TypeId = 1;
+  bool Active = 2; // 是否已激活
+  bool Wakeup = 3; // 是否已觉醒
+  int32 Star = 4;  // 星级
+  int32 BoxId = 5; // 放置id
+  int32 Score = 6; // 评分
 }
 
 ////////////////////////////////////////////////
@@ -135,9 +192,18 @@ message Chapter {
 
 message Stage {
   int32 Id = 1;                 // 关卡id
-  int32 ChallengeTimes = 2;     // 已挑战次数
-  bool FirstReward = 3;         // 是否已领取首次通关奖励
-  repeated bool Objectives = 4; // 是否已达成目标
+  bool Passed = 2;              // 是否已通关
+  int32 ChallengeTimes = 3;     // 已挑战次数
+  bool Achieve = 4;             // 成就是否已达成
+  repeated bool Objectives = 5; // 是否已达成星级目标
+}
+
+////////////////////////////////////////////////
+// 章节 & 关卡信息
+message Tower {
+  // 塔类型 0: 韵律之塔 1: 自然之塔 2: 文明之塔 3: 破灭之塔 4: 综合试炼
+  int32 Type = 1;
+  int32 Floor = 2; // 当前所在层
 }
 
 ////////////////////////////////////////////////

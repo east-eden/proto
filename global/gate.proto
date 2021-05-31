@@ -1,0 +1,48 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "github.com/east-eden/server/proto/global";
+option csharp_namespace = "proto";
+
+enum CmdType {
+  NEW = 0;    // new connect
+  RECONN = 1; // re connect
+}
+
+enum SrcType {
+  CLIENT = 0; // client direct
+  GATE = 1;   // gate forward
+}
+
+message MapFieldEntry {
+  string key = 1;
+  string value = 2;
+}
+
+message Handshake {
+  CmdType Cmd = 1;        //
+  SrcType Src = 2;        //
+  string ServiceName = 3; // Service name（new connection OR stateless service）
+  string ServerId = 4;    // Used when reconnecting stateful services
+  string ServerIP = 5;    // Backend ip
+  int32 ServerPort = 6;   // Backend port
+  string ClientAddr = 7;    // The address of the client when the gate forward
+  string UserID = 8;        // Userid used for actor
+  string ClientVer = 9;     // client version
+  string ClientResVer = 10; // client resource version
+  repeated MapFieldEntry Meta = 11; // custom meta
+}
+
+enum ErrorCode {
+  Success = 0;
+  Unauthorized = 401;
+  Forbidden = 403;
+  NotFound = 404;
+  InternalServerError = 500;
+  ServiceUnavailable = 503;
+}
+
+message HandshakeResp {
+  ErrorCode Code = 1; //
+  string Desc = 2;    // success or err desc
+}
