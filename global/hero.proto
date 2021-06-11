@@ -27,6 +27,11 @@ message S2C_HeroLevelup {
 // 突破
 message C2S_HeroPromote { int64 HeroId = 1; }
 
+message S2C_HeroPromote {
+  int64 HeroId = 1;
+  int32 CurPromoteLevel = 2;
+}
+
 // 升星
 message C2S_HeroStarup { int64 HeroId = 1; }
 
