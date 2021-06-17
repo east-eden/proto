@@ -9,37 +9,41 @@ import "global/define.proto";
 // service
 ///////////////////////////////////////////////////
 service GameService {
-    rpc GetRemotePlayerInfo (GetRemotePlayerInfoRq) returns (GetRemotePlayerInfoRs) {}
-    rpc KickAccountOffline (KickAccountOfflineRq) returns (KickAccountOfflineRs) {}
+  rpc GetRemotePlayerInfo(GetRemotePlayerInfoRq)
+      returns (GetRemotePlayerInfoRs) {}
+  rpc KickAccountOffline(KickAccountOfflineRq) returns (KickAccountOfflineRs) {}
+  rpc ExpirePlayerMail(ExpirePlayerMailRq) returns (ExpirePlayerMailRs) {}
 
-    // test
-    rpc UpdatePlayerExp (UpdatePlayerExpRequest) returns (UpdatePlayerExpReply) {}
+  // test
+  rpc UpdatePlayerExp(UpdatePlayerExpRequest) returns (UpdatePlayerExpReply) {}
 }
 
-message GetRemotePlayerInfoRq {
-    int64 id = 1;
-}
+message GetRemotePlayerInfoRq { int64 id = 1; }
 
-message GetRemotePlayerInfoRs {
-    proto.PlayerInfo info = 1;
-}
+message GetRemotePlayerInfoRs { proto.PlayerInfo info = 1; }
 
-message UpdatePlayerExpRequest {
-    int64 id = 1;
-}
+message UpdatePlayerExpRequest { int64 id = 1; }
 
 message UpdatePlayerExpReply {
-    int64 id = 1;
-    int64 exp = 2;
+  int64 id = 1;
+  int64 exp = 2;
 }
 
 // game节点中的account提下线
 message KickAccountOfflineRq {
-    int64 accountId = 1;
-    int32 gameId = 2;
+  int64 accountId = 1;
+  int32 gameId = 2;
 }
 
 message KickAccountOfflineRs {
-    int64 accountId = 1;
-    string Error = 2;
+  int64 accountId = 1;
+  string Error = 2;
 }
+
+// 邮件过期
+message ExpirePlayerMailRq {
+  int64 playerId = 1;
+  repeated int64 mailIds = 2;
+}
+
+message ExpirePlayerMailRs {}
