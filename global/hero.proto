@@ -41,6 +41,11 @@ message C2S_HeroTalentChoose {
   int32 TalentId = 2; // 天赋id
 }
 
+message S2C_HeroTalentChoose {
+  int64 HeroId = 1; // 英雄id
+  repeated Talent TalentList = 2;  // 天赋id
+}
+
 message S2C_HeroInfo { proto.Hero info = 1; }
 
 ////////////////////////////////////////////////
