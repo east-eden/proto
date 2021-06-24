@@ -69,5 +69,5 @@ enum AttType {
 // 普通属性
 message Att {
   AttType AttType = 1;
-  int32 AttValue = 2;
+  float AttValue = 2;
 }
