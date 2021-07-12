@@ -1,3 +1,3 @@
-module e.coding.net/mmstudio/blade/proto
+module github.com/east-eden/proto
 
 go 1.15
