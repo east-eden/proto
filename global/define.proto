@@ -257,3 +257,12 @@ message Quest {
   int32 State = 2; // 任务状态 0-开启，1-完成，2-已领取任务奖励
   repeated QuestObj Objs = 3; // 任务目标
 }
+
+
+////////////////////////////////////////////////
+// 排行榜
+message RankRaw {
+  int64 ObjId = 1; // 排行榜对象id
+  double Score = 2; // 排行榜分数
+  int32 Date = 3; // 分数更新时间
+}

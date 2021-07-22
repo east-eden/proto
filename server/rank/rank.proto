@@ -14,7 +14,7 @@ service RankService {
 //   rpc ReadMail(ReadMailRq) returns (ReadMailRs) {}
 //   rpc GainAttachments(GainAttachmentsRq) returns (GainAttachmentsRs) {}
 //   rpc DelMail(DelMailRq) returns (DelMailRs) {}
-
+  rpc SetRankScore(SetRankScoreRq) returns (SetRankScoreRs) {}
   rpc KickRankData(KickRankDataRq) returns (KickRankDataRs) {}
 }
 
@@ -62,12 +62,22 @@ service RankService {
 
 // message DelMailRs { int64 MailId = 1; }
 
+// 设置排行榜分数
+message SetRankScoreRq {
+  int32 RankId = 1; // 排行榜id
+  proto.RankRaw Raw = 2; // 元数据
+}
+
+message SetRankScoreRs {
+}
+
+// 踢掉其他节点排行榜缓存
 message KickRankDataRq {
-  int64 RankId = 1; // 排行榜id
+  int32 RankId = 1; // 排行榜id
   int32 RankNodeId = 2; // 所在rank服务节点id
 }
 
 message KickRankDataRs {
-  int64 RankId = 1;
+  int32 RankId = 1; // 排行榜id
   string Error = 2;
 }
