@@ -8,7 +8,7 @@ import "global/define.proto";
 ///////////////////////////////////////////////////
 // service
 ///////////////////////////////////////////////////
-service mailService {
+service MailService {
   rpc CreateMail(CreateMailRq) returns (CreateMailRs) {}
   rpc QueryPlayerMails(QueryPlayerMailsRq) returns (QueryPlayerMailsRs) {}
   rpc ReadMail(ReadMailRq) returns (ReadMailRs) {}

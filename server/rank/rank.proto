@@ -1,0 +1,73 @@
+syntax = "proto3";
+package rank;
+
+option go_package = "e.coding.net/mmstudio/blade/server/proto/server/rank";
+
+import "global/define.proto";
+
+///////////////////////////////////////////////////
+// service
+///////////////////////////////////////////////////
+service RankService {
+//   rpc CreateMail(CreateMailRq) returns (CreateMailRs) {}
+//   rpc QueryPlayerMails(QueryPlayerMailsRq) returns (QueryPlayerMailsRs) {}
+//   rpc ReadMail(ReadMailRq) returns (ReadMailRs) {}
+//   rpc GainAttachments(GainAttachmentsRq) returns (GainAttachmentsRs) {}
+//   rpc DelMail(DelMailRq) returns (DelMailRs) {}
+
+  rpc KickRankData(KickRankDataRq) returns (KickRankDataRs) {}
+}
+
+// message CreateMailRq {
+//   int64 ReceiverId = 1;                     // 收件人id
+//   int64 SenderId = 2;                       // 发件人id
+//   proto.MailType Type = 3;                 // 邮件类型
+//   string SenderName = 4;                    // 发件人姓名
+//   string Title = 5;                         // 邮件标题
+//   string Content = 6;                       // 邮件内容
+//   repeated proto.LootData Attachments = 7; // 邮件附件
+// }
+
+// message CreateMailRs {
+//   proto.Mail NewMail = 1; // 新邮件数据
+// }
+
+// message QueryPlayerMailsRq {
+//   int64 OwnerId = 1; // 邮箱主人id
+// }
+
+// message QueryPlayerMailsRs { repeated proto.Mail Mails = 1; }
+
+// message ReadMailRq {
+//   int64 OwnerId = 1; // 邮箱主人id
+//   int64 MailId = 2;  // 邮件id
+// }
+
+// message ReadMailRs {
+//   int64 MailId = 1;             // 邮件id
+//   proto.MailStatus Status = 2; // 邮件状态
+// }
+
+// message GainAttachmentsRq {
+//   int64 OwnerId = 1; // 邮箱主人id
+//   int64 MailId = 2;  // 邮件id
+// }
+
+// message GainAttachmentsRs { int64 MailId = 1; }
+
+// message DelMailRq {
+//   int64 OwnerId = 1; // 邮箱主人id
+//   int64 MailId = 2;  // 邮件id
+// }
+
+// message DelMailRs { int64 MailId = 1; }
+
+message KickRankDataRq {
+  int64 RankId = 1; // 排行榜id
+  int32 RankNodeId = 2; // 所在rank服务节点id
+}
+
+message KickRankDataRs {
+  int64 RankId = 1;
+  string Error = 2;
+}
