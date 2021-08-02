@@ -17,5 +17,6 @@ message C2S_QueryRank {
 // 排行信息
 message S2C_QueryRank {
   int32 RankId = 1;
-  proto.RankRaw Raw = 2;
+  int32 RankIndex = 2;
+  proto.RankRaw Raw = 3;
 }
