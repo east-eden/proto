@@ -1,0 +1,62 @@
+syntax = "proto3";
+package rank;
+
+option go_package = "e.coding.net/mmstudio/blade/server/proto/server/rank";
+
+import "global/define.proto";
+
+///////////////////////////////////////////////////
+// service
+///////////////////////////////////////////////////
+service RankService {
+  rpc QueryRankByObjId(QueryRankByObjIdRq) returns (QueryRankByObjIdRs) {}
+  rpc QueryRankByRange(QueryRankByRangeRq) returns (QueryRankByRangeRs) {}
+  rpc SetRankScore(SetRankScoreRq) returns (SetRankScoreRs) {}
+  rpc KickRankData(KickRankDataRq) returns (KickRankDataRs) {}
+}
+
+// 通过id查询排行
+message QueryRankByObjIdRq {
+  int32 RankId = 1;
+  int64 ObjId = 2;
+}
+
+message QueryRankByObjIdRs {
+  int32 RankId = 1;
+  int64 ObjId = 2;
+  int32 RankIndex = 3; // 排行榜中位置：从0开始
+  proto.RankRaw Raw = 4;
+}
+
+message QueryRankByRangeRq {
+  int32 RankId = 1;
+  int64 Start = 2;
+  int64 End = 3; // End == -1时代表查询所有数据
+}
+
+message QueryRankByRangeRs {
+  int32 RankId = 1;
+  int64 Start = 2;
+  int64 End = 3;
+  repeated proto.RankRaw Raws = 4; // 按照start到end顺序
+}
+
+// 设置排行榜分数
+message SetRankScoreRq {
+  int32 RankId = 1; // 排行榜id
+  proto.RankRaw Raw = 2; // 元数据
+}
+
+message SetRankScoreRs {
+}
+
+// 踢掉其他节点排行榜缓存
+message KickRankDataRq {
+  int32 RankId = 1; // 排行榜id
+  int32 RankNodeId = 2; // 所在rank服务节点id
+}
+
+message KickRankDataRs {
+  int32 RankId = 1; // 排行榜id
+  string Error = 2;
+}

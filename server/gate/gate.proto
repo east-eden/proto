@@ -22,7 +22,7 @@ message UserInfo {
 ///////////////////////////////////////////////////
 // service
 ///////////////////////////////////////////////////
-service gateService {
+service GateService {
   rpc GetGateStatus(GateEmptyMessage) returns (GetGateStatusReply) {}
   rpc SyncPlayerInfo(SyncPlayerInfoRequest) returns (SyncPlayerInfoReply) {}
 }
