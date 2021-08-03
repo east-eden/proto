@@ -4,15 +4,12 @@ package rank;
 option go_package = "e.coding.net/mmstudio/blade/server/proto/server/rank";
 
 import "global/define.proto";
-import "google/api/annotations.proto";
 
 ///////////////////////////////////////////////////
 // service
 ///////////////////////////////////////////////////
 service RankService {
-  rpc QueryRankByObjId(QueryRankByObjIdRq) returns (QueryRankByObjIdRs) {
-    option (google.api.http) = { post: "/query"; body: "*"; };
-  }
+  rpc QueryRankByObjId(QueryRankByObjIdRq) returns (QueryRankByObjIdRs) {}
   rpc QueryRankByRange(QueryRankByRangeRq) returns (QueryRankByRangeRs) {}
   rpc SetRankScore(SetRankScoreRq) returns (SetRankScoreRs) {}
   rpc KickRankData(KickRankDataRq) returns (KickRankDataRs) {}
