@@ -265,5 +265,5 @@ message RankRaw {
   int64 ObjId = 1; // 排行榜对象id
   string ObjName = 2; // 名字
   double Score = 3; // 排行榜分数
-  int32 Date = 4; // 分数更新时间
+  int64 Date = 4; // 分数更新时间
 }
