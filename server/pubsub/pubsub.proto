@@ -8,14 +8,21 @@ import "global/define.proto";
 /////////////////////////////////////////////////
 // pub/sub
 /////////////////////////////////////////////////
-message PubStartGate { proto.AccountInfo info = 1; }
-
-message PubGateResult {
-  proto.AccountInfo info = 1;
-  bool win = 2;
+message PubStartGate { 
+  int64 id = 1;
+  proto.AccountInfo info = 2; 
 }
 
-message PubSyncPlayerInfo { proto.PlayerInfo info = 1; }
+message PubGateResult {
+  int64 id = 1;
+  proto.AccountInfo info = 2;
+  bool win = 3;
+}
+
+message PubSyncPlayerInfo { 
+  int64 id = 1;
+  proto.PlayerInfo info = 2; 
+}
 
 message MultiPublishTest {
   int32 id = 1;
