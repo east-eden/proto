@@ -1,0 +1,61 @@
+syntax = "proto3";
+package comment;
+
+option go_package = "e.coding.net/mmstudio/blade/server/proto/server/comment";
+
+import "global/define.proto";
+
+///////////////////////////////////////////////////
+// service
+///////////////////////////////////////////////////
+service CommentService {
+  rpc QueryCommentTopic(QueryCommentTopicRq) returns (QueryCommentTopicRs) {}
+  rpc QueryCommentTopicRange(QueryCommentTopicRangeRq) returns (QueryCommentTopicRangeRs) {}
+  rpc ModCommentThumbs(ModCommentThumbsRq) returns (ModCommentThumbsRs) {}
+  rpc KickCommentTopicData(KickCommentTopicDataRq) returns (KickCommentTopicDataRs) {}
+}
+
+// 通过topic查询评论
+message QueryCommentTopicRq {
+  proto.CommentTopic Topic = 1;
+}
+
+message QueryCommentTopicRs {
+  repeated proto.CommentMetadata Metadatas = 1; // 评论数据
+}
+
+// 按赞数排行区间查询评论
+message QueryCommentTopicRangeRq {
+  proto.CommentTopic Topic = 1;
+  int64 Start = 2;
+  int64 End = 3; // End == -1时代表查询所有数据
+}
+
+message QueryCommentTopicRangeRs {
+  proto.CommentTopic Topic = 1;
+  int64 Start = 2;
+  int64 End = 3;
+  repeated proto.CommentMetadata Metadatas = 4;
+}
+
+// 修改按赞数
+message ModCommentThumbsRq {
+  proto.CommentTopic Topic = 1;
+  int64 CommentId = 2; // 评论唯一id
+  int32 ModThumbs = 3;
+}
+
+message ModCommentThumbsRs {
+  string Error = 1;
+}
+
+// 踢掉其他节点评论缓存
+message KickCommentTopicDataRq {
+  proto.CommentTopic Topic = 1;
+  int32 CommentTopicNodeId = 2; // 所在服务节点id
+}
+
+message KickCommentTopicDataRs {
+  proto.CommentTopic Topic = 1;
+  string Error = 2;
+}

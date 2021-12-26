@@ -25,7 +25,7 @@ message QueryRankByObjIdRs {
   int32 RankId = 1;
   int64 ObjId = 2;
   int32 RankIndex = 3; // 排行榜中位置：从0开始
-  proto.RankRaw Raw = 4;
+  proto.RankMetadata Metadata = 4;
 }
 
 message QueryRankByRangeRq {
@@ -38,13 +38,13 @@ message QueryRankByRangeRs {
   int32 RankId = 1;
   int64 Start = 2;
   int64 End = 3;
-  repeated proto.RankRaw Raws = 4; // 按照start到end顺序
+  repeated proto.RankMetadata Metadatas = 4; // 按照start到end顺序
 }
 
 // 设置排行榜分数
 message SetRankScoreRq {
   int32 RankId = 1; // 排行榜id
-  proto.RankRaw Raw = 2; // 元数据
+  proto.RankMetadata Metadata = 2; // 元数据
 }
 
 message SetRankScoreRs {

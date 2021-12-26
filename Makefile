@@ -7,6 +7,7 @@ proto:
 	protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=github.com/east-eden/server/proto --micro_opt=paths=source_relative ./server/combat/*.proto
 	protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=github.com/east-eden/server/proto --micro_opt=paths=source_relative ./server/mail/*.proto
 	protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=github.com/east-eden/server/proto --micro_opt=paths=source_relative ./server/rank/*.proto
+	protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=github.com/east-eden/server/proto --micro_opt=paths=source_relative ./server/comment/*.proto
 	protoc -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=github.com/east-eden/server/proto --micro_opt=paths=source_relative ./server/pubsub/*.proto
 
 	# 客户端导出
@@ -21,6 +22,7 @@ linux_proto:
 	./bin/protoc_server -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=github.com/east-eden/server/proto --micro_opt=paths=source_relative ./server/combat/*.proto
 	./bin/protoc_server -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=github.com/east-eden/server/proto --micro_opt=paths=source_relative ./server/mail/*.proto
 	./bin/protoc_server -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=github.com/east-eden/server/proto --micro_opt=paths=source_relative ./server/rank/*.proto
+	./bin/protoc_server -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=github.com/east-eden/server/proto --micro_opt=paths=source_relative ./server/comment/*.proto
 	./bin/protoc_server -I=./ --go_out=:../server/proto --micro_out=:../server/proto --go_opt=module=github.com/east-eden/server/proto --micro_opt=paths=source_relative ./server/pubsub/*.proto
 
 	# 客户端导出

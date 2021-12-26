@@ -18,5 +18,5 @@ message C2S_QueryRank {
 message S2C_QueryRank {
   int32 RankId = 1;
   int32 RankIndex = 2;
-  proto.RankRaw Raw = 3;
+  proto.RankMetadata Metadata = 3;
 }
