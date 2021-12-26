@@ -261,9 +261,46 @@ message Quest {
 
 ////////////////////////////////////////////////
 // 排行榜
-message RankRaw {
+message RankMetadata {
   int64 ObjId = 1; // 排行榜对象id
   string ObjName = 2; // 名字
   double Score = 3; // 排行榜分数
   int64 Date = 4; // 分数更新时间
+}
+
+////////////////////////////////////////////////
+// 评论
+enum TopicType {
+  option allow_alias = true;
+  TopicType_Begin = 0;
+  TopicType_Hero = 0;                // 0 英雄
+  TopicType_Item = 1;             // 1 物品
+  TopicType_End = 2;
+} 
+
+message PublisherMetadata {
+  int64 PublisherId = 1; // 发表者id
+  string PublisherName = 2; // 发表者名字
+  int64 ReplyToId = 3; // 回复**玩家id
+  string ReplyToName = 4; // 回复**玩家名字
+  string Content = 5; // 内容
+  int32 Thumbs = 6; // 点赞数
+  int32 Date = 7; // 发表日期
+}
+
+message ReplyerMetadata {
+  int64 CommentId = 1; // 评论唯一id
+  PublisherMetadata PublisherMetadata = 2; // 发表元数据
+}
+
+message CommentTopic {
+  int32 TopicType = 1; // 评论主体类型
+  int32 TopicTypeId = 2; // 评论主体type_id
+}
+
+message CommentMetadata {
+  int64 CommentId = 1; // 评论唯一id
+  CommentTopic Topic = 2; // 评论话题
+  PublisherMetadata PublisherMetadata = 3; // 发表者元数据
+  repeated ReplyerMetadata ReplyMetadatas = 4; // 此条评论回复列表
 }
