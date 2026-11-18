@@ -30,45 +30,6 @@ message AccountInfo {
 }
 
 ////////////////////////////////////////////////
-// token
-enum TokenType {
-  option allow_alias = true;
-  Token_Begin = 0;
-  Token_Gold = 0;                // 0 金币
-  Token_Diamond = 1;             // 1 钻石
-  Token_Music = 2;               // 2 音石
-  Token_Friendship = 3;          // 3 友情点
-  Token_Maze = 4;                // 4 迷宫代币
-  Token_Arena = 5;               // 5 竞技场代币
-  Token_Expedition = 6;          // 6 远征代币
-  Token_Home = 7;                // 7 家园代币
-  Token_ActivityQuest = 8;       // 8 活跃任务代币
-  Token_GuildContrubution = 9;   // 9 帮会贡献
-  Token_CrystalExp = 10;         // 10 晶石经验代币
-  Token_ExploreReputation1 = 11; // 11 探索声望代币1
-  Token_ExploreReputation2 = 12; // 12 探索声望代币2
-  Token_ExploreReputation3 = 13; // 13 探索声望代币3
-  Token_ExploreReputation4 = 14; // 14 探索声望代币4
-  Token_ExploreReputation5 = 15; // 15 探索声望代币5
-  Token_Strength = 16;           // 16 体力
-  Token_StrengthStore = 17;      // 17 体力存储
-
-  Token_CollectionBegin = 18;
-  Token_CollectionGreen = 18;  // 18 绿色收集品通用碎片
-  Token_CollectionBlue = 19;   // 19 蓝色收集品通用碎片
-  Token_CollectionPurple = 20; // 20 紫色收集品通用碎片
-  Token_CollectionYellow = 21; // 21 黄色收集品通用碎片
-  Token_CollectionEnd = 22;
-
-  Token_End = 22;
-}
-
-message Token {
-  TokenType Type = 1; // 代币类型
-  int32 Value = 2;    // 代币值
-}
-
-////////////////////////////////////////////////
 // talent
 message Talent {
   int32 TalentId = 1;    // 天赋id
@@ -102,7 +63,6 @@ message Fragment {
 // Loot 掉落信息
 enum LootType {
   LootItem = 0;      // 物品
-  LootToken = 1;     // 代币
   LootHero = 2;      // 英雄
   LootPlayerExp = 3; // 玩家经验
   LootFragment = 4;  // 碎片
@@ -119,44 +79,7 @@ message LootData {
 message Item {
   int64 Id = 1;
   int32 TypeId = 2;
-  int32 Num = 3;
-}
-
-////////////////////////////////////////////////
-// Equip
-message EquipData {
-  int32 Exp = 1;      // 经验
-  int32 Level = 2;    // 等级
-  int32 Promote = 3;  // 突破等级
-  int32 Star = 4;     // 星级
-  bool Lock = 5;      // 锁定
-  int64 EquipObj = 6; // 装备者id
-}
-
-message Equip {
-  Item Item = 1;           // 物品data
-  EquipData EquipData = 2; // 装备data
-}
-
-////////////////////////////////////////////////
-// Crystal
-// 晶石属性
-message CrystalAtt {
-  int32 AttRepoId = 1;    // 属性库id
-  int32 AttRandRatio = 2; // 属性随机区间系数
-}
-
-message CrystalData {
-  int32 Level = 1;                  // 等级
-  int32 Exp = 2;                    // 经验
-  int64 CrystalObj = 3;             // 装备者id
-  CrystalAtt MainAtt = 4;           // 主属性
-  repeated CrystalAtt ViceAtts = 5; // 多条副属性
-}
-
-message Crystal {
-  Item Item = 1;               // 物品data
-  CrystalData CrystalData = 2; // 晶石属性
+  int64 Num = 3; // 可堆叠数量，必须用 int64 避免大额堆叠截断
 }
 
 ////////////////////////////////////////////////

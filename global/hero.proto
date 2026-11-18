@@ -59,3 +59,8 @@ message S2C_HeroAttUpdate {
   int64 HeroId = 1;
   repeated proto.Att Atts = 2; // 更新的属性
 }
+
+// 英雄碎片更新（kof chip 模型：碎片是玩家数据里的虚拟计数）
+message S2C_HeroChipUpdate {
+  map<int32, int32> Chips = 1; // chipId -> 数量
+}

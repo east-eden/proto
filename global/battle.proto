@@ -1,0 +1,97 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "github.com/east-eden/server/proto/global";
+option csharp_namespace = "proto";
+
+////////////////////////////////////////////////
+// 战斗类型
+enum EMBattleType {
+  BattleType_Stage = 0;  // 关卡战斗
+  BattleType_Tower = 1;  // 爬塔
+  BattleType_RoyalBoss = 2; // 皇家挑战
+  BattleType_Arena = 3;  // 竞技场
+}
+
+// 战斗中的英雄卡牌
+message BattleHeroCard {
+  int32 ConfigId = 1;    // 英雄配置id
+  int32 Level = 2;       // 等级
+  int32 Star = 3;        // 星级
+  int32 PromotionLv = 4; // 晋升等级
+  int32 Rarity = 5;      // 品质
+  map<int32, float> Attrs = 6; // 战斗属性
+  int64 BattlePower = 7; // 战力
+}
+
+// 战斗单位（玩家或怪物方）
+message BattlePlayer {
+  int64 Id = 1;
+  string Name = 2;
+  int32 Level = 3;
+  repeated BattleHeroCard Heros = 4; // 上场英雄
+  repeated int64 Formation = 5;      // 阵容（英雄配置id顺序）
+  int32 Career = 6;                  // 玩家职业（怪物方用）
+}
+
+// 战斗开场额外数据
+message BattleExtraData {
+  int32 BattleIndex = 1;      // 多队战斗索引
+  bool EnableSimpleCombo = 2; // 是否开启简易连携
+  int32 Stamina = 3;          // 当前体力
+}
+
+// 开始战斗请求（服务器 -> 战斗服）
+message ReqServerBattleStart {
+  string BattleId = 1;
+  EMBattleType BattleType = 2;
+  int32 LevelId = 3;
+  BattlePlayer AtkPlayer = 4;
+  BattlePlayer DefPlayer = 5;
+  BattleExtraData ExtraData = 6;
+}
+
+// 战斗统计
+message BattleStat {
+  float GameDuration = 1; // 总战斗时长
+  float CostTime = 2;     // 战斗运行耗时
+  float RespTime = 3;     // 总响应时长
+}
+
+// 战斗结果（战斗服 -> 服务器）
+message RespServerBattleResult {
+  string BattleId = 1;
+  bool Win = 2;
+  int64 Winner = 3;
+  float TotalDmg = 4;
+  bytes Report = 5;
+  BattleStat Stat = 6;
+  float BossSurplusHp = 7;
+  float BossTotalHp = 8;
+}
+
+// 客户端战斗签名信息
+message ChallengeSignInfo {
+  string Token = 1;
+  string Sign = 2;
+  int64 StartTime = 3;
+  int64 EndTime = 4;
+  string Data = 5;
+  int32 LevelId = 6;
+  double Dmg = 7;
+  bool Win = 8;
+  RespServerBattleResult BattleResult = 9;
+}
+
+// 客户端提交战斗结果
+message C2S_BattleResult {
+  EMBattleType BattleType = 1;
+  int32 LevelId = 2;              // 关卡id（爬塔传对应 levelId）
+  ChallengeSignInfo Sign = 3;     // 客户端战斗签名
+}
+
+// 服务端确认战斗结果
+message S2C_BattleResult {
+  bool Win = 1;    // 服务端认定的胜负
+  int32 ErrCode = 2;
+}
