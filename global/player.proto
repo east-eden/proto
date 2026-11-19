@@ -5,6 +5,7 @@ option go_package = "github.com/east-eden/server/proto/global";
 option csharp_namespace = "proto";
 
 import "define.proto";
+import "activity.proto";
 
 // 创建角色
 message C2S_CreatePlayer { string name = 1; }
@@ -25,6 +26,7 @@ message S2C_PlayerInitInfo {
   repeated Quest Quests = 12;            // 任务信息
   repeated Tower Towers = 14;            // 塔信息
   map<int32, int32> HeroChips = 15;      // 英雄碎片（chipId -> 数量）
+  repeated ActivityInfo Activities = 16; // 活动状态
 }
 
 message S2C_ExpUpdate {
