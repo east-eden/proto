@@ -1,0 +1,30 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "github.com/east-eden/server/proto/global";
+option csharp_namespace = "proto";
+
+// 商品状态
+message ShopGoodsInfo {
+  int32 Id = 1;     // 商品id
+  int32 Bought = 2; // 已购买数量
+  int32 Remain = 3; // 剩余可购买数量，-1 表示不限购
+}
+
+// 商店状态
+message ShopInfo {
+  int32 Id = 1;
+  repeated ShopGoodsInfo Goods = 2;
+}
+
+// 商店状态更新
+message S2C_ShopUpdate {
+  repeated ShopInfo Shops = 1;
+}
+
+// 购买商品
+message C2S_ShopBuy {
+  int32 ShopId = 1;
+  int32 GoodsId = 2;
+  int32 Count = 3; // 购买份数
+}

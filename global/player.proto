@@ -6,6 +6,7 @@ option csharp_namespace = "proto";
 
 import "define.proto";
 import "activity.proto";
+import "shop.proto";
 
 // 创建角色
 message C2S_CreatePlayer { string name = 1; }
@@ -27,6 +28,7 @@ message S2C_PlayerInitInfo {
   repeated Tower Towers = 14;            // 塔信息
   map<int32, int32> HeroChips = 15;      // 英雄碎片（chipId -> 数量）
   repeated ActivityInfo Activities = 16; // 活动状态
+  repeated ShopInfo Shops = 17;          // 商店状态
 }
 
 message S2C_ExpUpdate {
