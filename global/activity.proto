@@ -13,6 +13,14 @@ message ActivityTaskInfo {
   bool Claimed = 3;           // 是否已领奖
 }
 
+// 战斗通行证状态
+message BattlePassInfo {
+  int32 Score = 1;      // 当前积分
+  bool Unlocked = 2;    // 是否解锁高级奖励
+  int32 FreeIndex = 3;  // 已领取的免费阶段数
+  int32 HighIndex = 4;  // 已领取的高级阶段数
+}
+
 // 活动状态
 message ActivityInfo {
   string Id = 1;                    // 活动id
@@ -21,6 +29,7 @@ message ActivityInfo {
   bool Open = 4;                    // 是否开启中
   int32 SignDays = 5;               // 已签到天数
   repeated ActivityTaskInfo Tasks = 6; // 任务进度
+  BattlePassInfo BattlePass = 7;        // 通行证进度
 }
 
 // 活动状态更新
@@ -38,4 +47,21 @@ message C2S_ActivitySignIn {
 message C2S_ActivityClaimTask {
   string ActivityId = 1;
   int32 TaskId = 2;
+}
+
+// 领取通行证奖励
+message C2S_BattlePassClaim {
+  string ActivityId = 1;
+  bool Free = 2; // true=免费奖励 false=高级奖励
+}
+
+// 解锁通行证高级奖励
+message C2S_BattlePassUnlock {
+  string ActivityId = 1;
+}
+
+// 通行证状态
+message S2C_BattlePassResult {
+  string ActivityId = 1;
+  BattlePassInfo Info = 2;
 }
