@@ -1,0 +1,31 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "github.com/east-eden/server/proto/global";
+option csharp_namespace = "proto";
+
+// 抽卡产出
+message RecruitReward {
+  int32 ItemId = 1;
+  int32 Num = 2;
+}
+
+// 招募请求：RecruitType 0=免费 1=高级
+message C2S_Recruit {
+  int32 RecruitType = 1;
+  int32 Times = 2; // 高级招募支持 1 或 10
+}
+
+// 招募结果
+message S2C_RecruitResult {
+  repeated RecruitReward Rewards = 1;
+  int32 SeniorTimes = 2; // 高级招募累计次数
+}
+
+// 招募状态
+message S2C_RecruitInfo {
+  int32 FreeUsed = 1;       // 当日已用免费次数
+  int32 SeniorTimes = 2;    // 高级招募累计次数
+  int32 BigGuarantee = 3;   // 距离大保底次数
+  int32 SmallGuarantee = 4; // 距离小保底次数
+}
