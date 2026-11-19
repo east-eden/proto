@@ -1,0 +1,48 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "github.com/east-eden/server/proto/global";
+option csharp_namespace = "proto";
+
+// 公会成员
+message AllianceMember {
+  int64 Id = 1;
+  int32 Position = 2; // 0=成员 1=精英 2=副会长 3=会长
+}
+
+// 公会信息
+message AllianceInfo {
+  int64 Id = 1;
+  string Name = 2;
+  int64 LeaderId = 3;
+  int32 Level = 4;
+  int32 Exp = 5;
+  string Notice = 6;
+  repeated AllianceMember Members = 7;
+}
+
+// 创建公会
+message C2S_AllianceCreate {
+  string Name = 1;
+}
+
+// 加入公会
+message C2S_AllianceJoin {
+  int64 Id = 1;
+}
+
+// 退出公会
+message C2S_AllianceLeave {}
+
+// 踢出成员
+message C2S_AllianceKick {
+  int64 MemberId = 1;
+}
+
+// 每日建设
+message C2S_AllianceBuild {}
+
+// 公会信息同步
+message S2C_AllianceInfo {
+  AllianceInfo Info = 1;
+}
