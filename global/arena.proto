@@ -1,0 +1,25 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "github.com/east-eden/server/proto/global";
+option csharp_namespace = "proto";
+
+// 竞技场状态
+message ArenaInfo {
+  int32 Score = 1;          // 积分
+  int32 Rank = 2;           // 排名
+  int32 WeekWins = 3;       // 本周胜场
+  bool DailyClaimed = 4;    // 日榜奖励是否已领
+  bool WeeklyClaimed = 5;   // 周榜奖励是否已领
+}
+
+// 领取竞技场排名奖励
+message C2S_ArenaClaim {
+  bool Weekly = 1; // true=周榜 false=日榜
+  int32 Rank = 2;  // 当前排名，由排名服务给出
+}
+
+// 竞技场状态同步
+message S2C_ArenaInfo {
+  ArenaInfo Info = 1;
+}
